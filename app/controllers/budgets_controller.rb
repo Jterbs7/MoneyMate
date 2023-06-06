@@ -1,45 +1,49 @@
 class BudgetsController < ApplicationController
 
   def index
-    @budgets = user.budgets
+    @budgets = current_user.budgets
   end
 
-  def show
-    @budgets = user.budgets.find(params[:id])
-  end
+    def show
+      @budget = Budget.find(params[:id]) unless params[:id] == 'new'
+
+      if @budget.nil?
+        redirect_to new_budget_path, alert: 'Budget not found.'
+      end
+    end
 
   def new
-    @budget = user.budgets.new
+    @budget = Budget.new
   end
 
   def create
-    @budget = user.budgets.new(budget_params)
+    @budget = current_user.budgets.new(budget_params)
 
     if @budget.save
-      redirect_to @budget, notice: 'Budget created successfully.'
+      redirect_to @budget, notice: 'Budget created successfully 🎉🎉🎉'
     else
       render :new
     end
   end
 
   def edit
-    @budget = user.budgets.find(params[:id])
+    @budget = current_user.budgets.find(params[:id])
   end
 
   def update
-    @budget = user.budgets.find(params[:id])
+    @budget = current_user.budgets.find(params[:id])
 
     if @budget.update(budget_params)
-      redirect_to @budget, notice: 'Budget updated successfully.'
+      redirect_to @budget, notice: 'Budget updated successfully 💪🏽💪🏽💪🏽'
     else
       render :edit
     end
   end
 
   def destroy
-    @budget = user.budgets.find(params[:id])
+    @budget = current_user.budgets.find(params[:id])
     @budget.destroy
-    redirect_to budgets_url, notice: 'Budget deleted successfully.'
+    redirect_to budgets_url, notice: 'Budget deleted successfully 👋🏽👋🏽👋🏽'
   end
 
   private

@@ -1,0 +1,17 @@
+<h1>New Budget</h1>
+
+<%= simple_form_for @budget do |form| %>
+  <%= form.error_notification %>
+
+  <div class="form-inputs">
+    <%= form.input :name %>
+    <%= form.input :month, as: :select, collection: Date::MONTHNAMES.compact.each_with_index.map { |month, index| [month, index+1] }, include_blank: 'Select Month' %>
+    <%= form.input :category, collection: ['Travel', 'Groceries', 'Entertainment', 'Rent'], include_blank: 'Select Category' %>
+   <%= form.input :amount, input_html: { value: number_to_currency(@budget.amount, unit: 'ZAR', format: '%u%n', delimiter: ',', precision: 2) } %>
+  </div>
+
+  <div class="form-actions">
+    <%= form.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>
+
