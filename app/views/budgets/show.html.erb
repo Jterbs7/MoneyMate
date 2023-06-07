@@ -1,0 +1,6 @@
+<h1><%= @budget.name %></h1>
+
+<p><strong>Description:</strong> <%= @budget.description %></p>
+
+<%= link_to 'Edit', edit_budget_path(@budget) %> |
+<%= link_to 'Delete', budget_path(@budget), method: :delete, data: { confirm: 'Are you sure?' } %>

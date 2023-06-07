@@ -1,0 +1,15 @@
+<h1>Budgets</h1>
+
+<%= link_to 'New Budget', new_budget_path, class: 'btn btn-primary' %>
+
+<% if @budgets.empty? %>
+  <p>No budgets found</p>
+<% else %>
+  <ul>
+    <% @budgets.each do |budget| %>
+      <li>
+        <%= link_to budget.name, budget %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
