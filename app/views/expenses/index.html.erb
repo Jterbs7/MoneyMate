@@ -1,10 +1,24 @@
-<h1>All Expenses</h1>
-<%= link_to 'New Expense', new_expense_path %>
-<% @expenses.each do |expense| %>
-  <p>
-    <%= expense.description %>: <%= expense.amount %>
-    <%= link_to 'Show', expense %>
-    <%= link_to 'Edit', edit_expense_path(expense) %>
-    <%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </p>
-<% end %>
+<div class="container">
+  <h1 class="mt-4">Total expenses: <%= @total_expenses %>zar</h1>
+
+  <h2 class="mt-4 mb-4">last 7 days</h2>
+
+  <%= link_to 'New Expense', new_expense_path, class: 'btn btn-primary mb-3' %>
+  <div class="list-group">
+    <% @expenses_last_seven_days.each do |expense| %>
+      <div class="list-group-item">
+        <div class="d-flex justify-content-between">
+          <div>
+            <%= expense.description %>: <%= expense.amount %>
+          </div>
+          <div>
+            <%= link_to 'Show', expense, class: 'btn btn-info btn-sm' %>
+            <%= link_to 'Edit', edit_expense_path(expense), class: 'btn btn-warning btn-sm' %>
+            <%= link_to 'Delete', expense, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>

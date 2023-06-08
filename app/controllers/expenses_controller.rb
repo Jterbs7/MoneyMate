@@ -1,8 +1,13 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
 
+  # def index
+  #   @expenses = Expense.all
+  # end
+
   def index
-    @expenses = Expense.all
+    @expenses_last_seven_days = Expense.where('created_at >= ?', 7.days.ago)
+    @total_expenses = Expense.sum(:amount)
   end
 
   def show
