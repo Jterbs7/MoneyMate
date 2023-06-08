@@ -1,0 +1,29 @@
+<h1><%= @profile.username %>'s Profile</h1>
+
+<p>
+  <strong>First Name:</strong>
+  <%= @profile.first_name %>
+</p>
+
+<p>
+  <strong>Second Name:</strong>
+  <%= @profile.second_name %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @profile.username %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @profile.age %>
+</p>
+
+<p>
+  <strong>Monthly Income:</strong>
+  <%= @profile.monthly_income %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>
