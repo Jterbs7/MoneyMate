@@ -19,8 +19,17 @@ puts "Creating some users"
 
 main_user = User.create!(
   email: "john@john.com",
-  password: "password",
-  # monthly_income: "40_000" Assign to Profile 
+  password: "password"
+  # monthly_income: "40_000" Assign to Profile
+)
+
+Profile.create!(
+  first_name: "John",
+  second_name: "Doe",
+  username: "johndoe",
+  age: 30,
+  monthly_income: 20_000,
+  user_id: main_user.id
 )
 
 5.times do
@@ -33,56 +42,185 @@ end
 
 puts "#{User.count} users created"
 
-budget_categories = ['Travel', 'Groceries', 'Entertainment', 'Rent']
+# budget_categories = ['Eating Out', 'Taxis', 'Gym', 'Rent', 'Takeaways', 'Drinking']
+# budget_categories = ['Eating Out', 'Taxis', 'Gym', 'Rent', 'Takeaways', 'Drinking']
 
-puts "Creating some budget categories"
+puts "Creating some example budgets and budget categories"
 
 travel_category = CategoryBudget.create!(
   name: "Travel",
-  amount: 20000,
-  month: "January",
-  user_id: main_user.id
-)
-
-entertainment_category = CategoryBudget.create!(
-  name: "Entertainment",
-  amount: 1000,
-  month: "January",
-  user_id: main_user.id
-)
-
-housing_category = CategoryBudget.create!(
-  name: "Housing",
-  amount: 5000,
-  month: "January",
-  user_id: main_user.id
-)
-
-food_category = CategoryBudget.create!(
-  name: "Food",
   amount: 4000,
   month: "January",
   user_id: main_user.id
 )
 
-puts "#{CategoryBudget.count} budget categories created"
+travel_budget_names = ['Uber', 'Train', 'Bus', 'Fuel']
 
-CategoryBudget.all.each do |category_budget|
+travel_budget_names.each do |name|
   Budget.create!(
-    name: Faker::Commerce.department(max: 1),
-    amount: (category_budget.amount / 2),
-    category_budget_id: category_budget.id
+    name: name,
+    amount: travel_category.amount / travel_budget_names.count,
+    category_budget_id: travel_category.id
   )
 end
 
+accommodation_category = CategoryBudget.create!(
+  name: "Accommodation",
+  amount: 8000,
+  month: "January",
+  user_id: main_user.id
+)
+
+accommodation_budget_names = ['Rent', 'Home Insurance', 'Hotel']
+
+accommodation_budget_names.each do |name|
+  Budget.create!(
+    name: name,
+    amount: accommodation_category.amount / accommodation_budget_names.count,
+    category_budget_id: accommodation_category.id
+  )
+end
+
+bills_category = CategoryBudget.create!(
+  name: "Utilities",
+  amount: 1500,
+  month: "January",
+  user_id: main_user.id
+)
+
+bills_budget_names = ['Electricity', 'Gas', 'Phone', 'Water', 'Internet']
+
+bills_budget_names.each do |name|
+  Budget.create!(
+    name: name,
+    amount: bills_category.amount / bills_budget_names.count,
+    category_budget_id: bills_category.id
+  )
+end
+
+lifestyle_category = CategoryBudget.create!(
+  name: "Lifestyle",
+  amount: 3500,
+  month: "January",
+  user_id: main_user.id
+)
+
+lifestyle_budget_names = ['Eating Out', 'Movies', 'Rugby', 'Gigs', 'Gym']
+
+lifestyle_budget_names.each do |name|
+  Budget.create!(
+    name: name,
+    amount: lifestyle_category.amount / lifestyle_budget_names.count,
+    category_budget_id: lifestyle_category.id
+  )
+end
+
+groceries_category = CategoryBudget.create!(
+  name: "Groceries",
+  amount: 1000,
+  month: "January",
+  user_id: main_user.id
+)
+
+groceries_budget_names = ['Food', 'Cleaning Supplies', 'Pet Food', 'Toiletries']
+
+groceries_budget_names.each do |name|
+  Budget.create!(
+    name: name,
+    amount: groceries_category.amount / groceries_budget_names.count,
+    category_budget_id: groceries_category.id
+  )
+end
+
+subscriptions_category = CategoryBudget.create!(
+  name: "Subscriptions",
+  amount: 975,
+  month: "January",
+  user_id: main_user.id
+)
+
+subscriptions_budget_names = ['Streaming Services', 'Software Subscriptions', 'Gym', 'Gaming']
+
+subscriptions_budget_names.each do |name|
+  Budget.create!(
+    name: name,
+    amount: subscriptions_category.amount / subscriptions_budget_names.count,
+    category_budget_id: subscriptions_category.id
+  )
+end
+
+shopping_category = CategoryBudget.create!(
+  name: "Personal Shopping",
+  amount: 850,
+  month: "January",
+  user_id: main_user.id
+)
+
+shopping_budget_names = ['Clothing', 'Beauty Products', 'Treats']
+
+shopping_budget_names.each do |name|
+  Budget.create!(
+    name: name,
+    amount: shopping_category.amount / shopping_budget_names.count,
+    category_budget_id: shopping_category.id
+  )
+end
+
+savings_category = CategoryBudget.create!(
+  name: "Savings",
+  amount: 4000,
+  month: "January",
+  user_id: main_user.id
+)
+
+savings_budget_names = ['Holiday', 'New car', 'Macbook Pro']
+
+savings_budget_names.each do |name|
+  Budget.create!(
+    name: name,
+    amount: savings_category.amount / savings_budget_names.count,
+    category_budget_id: savings_category.id
+  )
+end
+
+education_category = CategoryBudget.create!(
+  name: "Education",
+  amount: 700,
+  month: "January",
+  user_id: main_user.id
+)
+
+education_budget_names = ['Uni Fees', 'Le Wagon', 'Books']
+
+education_budget_names.each do |name|
+  Budget.create!(
+    name: name,
+    amount: education_category.amount / education_budget_names.count,
+    category_budget_id: education_category.id
+  )
+end
+
+puts "#{CategoryBudget.count} budget categories created and #{Budget.count} budgets created"
+
+# CategoryBudget.all.each do |category_budget|
+#   Budget.create!(
+#     name: Faker::Commerce.department(max: 1),
+#     amount: (category_budget.amount / 2),
+#     category_budget_id: category_budget.id
+#   )
+# end
+puts "Creating some expenses"
+
 Budget.all.each do |budget|
-  3.times do
+  8.times do
     Expense.create!(
-      amount: rand(1..80),
+      amount: rand(1..600),
       description: Faker::Beer.name,
       merchant: Faker::Fantasy::Tolkien.character,
-      date: Faker::Date.between(from: 2.weeks.ago, to: Date.today),
+      date: Faker::Date.between(from: 4.weeks.ago, to: Date.today),
       budget: budget
     )
   end
 end
+
+puts "Done"
