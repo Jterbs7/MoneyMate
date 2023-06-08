@@ -16,13 +16,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_091454) do
 
   create_table "budgets", force: :cascade do |t|
     t.string "name"
-    t.string "category"
     t.float "amount"
-    t.string "month"
-    t.bigint "user_id", null: false
+    t.bigint "category_budget_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_budgets_on_user_id"
+    t.index ["category_budget_id"], name: "index_budgets_on_category_budget_id"
+  end
+
+  create_table "category_budgets", force: :cascade do |t|
+    t.string "name"
+    t.integer "amount"
+    t.string "month"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_category_budgets_on_user_id"
   end
 
   create_table "expenses", force: :cascade do |t|
@@ -49,6 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_091454) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "budgets", "users"
+  add_foreign_key "budgets", "category_budgets"
+  add_foreign_key "category_budgets", "users"
   add_foreign_key "expenses", "budgets"
 end

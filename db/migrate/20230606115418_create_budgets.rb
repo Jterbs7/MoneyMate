@@ -2,10 +2,8 @@ class CreateBudgets < ActiveRecord::Migration[7.0]
   def change
     create_table :budgets do |t|
       t.string :name
-      t.string :category
       t.float :amount
-      t.string :month
-      t.references :user, null: false, foreign_key: true
+      t.references :category_budget, foreign_key: true
 
       t.timestamps
     end
