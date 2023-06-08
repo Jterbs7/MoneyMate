@@ -1,2 +1,30 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="container">
+
+  <div class="top-message-section">
+    <img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtriFhIQBG7UD6xWQWA_xDB-quP3WKTpIdng&usqp=CAU" alt= "image" >
+    <div class="greeting">
+      <h2>Good morning<h2>
+      <h1>user<h1>
+    </div>
+  </div>
+
+  <div class="graph-section">
+   <img src="https://math.andyou.com/content/02/04/images/mu_pe_02_04_015.png">
+  </div>
+
+  <div class="transactions-section">
+    <h4>Recent Transactions</h4>
+    <div class="recent-transactions">
+      <% @expenses.each do |expense| %>
+        <div class="recent-transaction-card">
+          <div class="recent-transaction-info">
+            <h2><%= expense.description %></h2>
+            <p><%= expense.date.strftime("%a %e %b") %></p>
+          </div>
+          <h2>R<%= expense.amount %></h2>
+        </div>
+      <%end %>
+    </div>
+  </div>
+</div>
