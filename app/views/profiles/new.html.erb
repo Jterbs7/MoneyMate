@@ -1,0 +1,11 @@
+<h1>Create Your Profile</h1>
+
+<%= simple_form_for(@profile) do |f| %>
+  <%= f.input :first_name, autofocus: true, placeholder: 'First Name' %>
+  <%= f.input :second_name, placeholder: 'Second Name' %>
+  <%= f.input :username, placeholder: 'Username' %>
+  <%= f.input :age, placeholder: 'Age' %>
+  <%= f.input :monthly_income, placeholder: 'Monthly Income' %>
+
+  <%= f.button :submit, "Create Profile" %>
+<% end %>
