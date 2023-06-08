@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :category_budgets
   has_many :budgets, through: :category_budgets
   has_many :expenses, through: :budgets
+  has_one :profile
 end
