@@ -20,14 +20,14 @@ puts "Creating some users"
 main_user = User.create!(
   email: "john@john.com",
   password: "password",
-  monthly_income: "40_000"
+  # monthly_income: "40_000" Assign to Profile 
 )
 
 5.times do
   User.create!(
     email: Faker::Internet.unique.email,
     password: 'password',
-    monthly_income: rand(20_000..80_000)
+    # monthly_income: rand(20_000..80_000) Assign to Profile
     )
 end
 
