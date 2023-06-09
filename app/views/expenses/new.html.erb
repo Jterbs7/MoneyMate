@@ -1,3 +1,9 @@
-<h1>Add New Expense</h1>
-<%= render 'form', expense: @expense %>
-<%= link_to 'Back', expenses_path %>
+<div class="new-expense-container">
+  <div class="new-expense-header">
+    <%= link_to :back do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+    <h1>ADD AN EXPENSE</h1>
+  </div>
+  <%= render 'form', expense: @expense %>
+</div>

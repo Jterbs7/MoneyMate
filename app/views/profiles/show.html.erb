@@ -1,29 +1,30 @@
-<h1><%= @profile.username %>'s Profile</h1>
+<div class="profile-show-container">
+  <h1><%= @profile.first_name %> <%= @profile.second_name %>'s Profile</h1>
 
-<p>
-  <strong>First Name:</strong>
-  <%= @profile.first_name %>
-</p>
+  <p>
+    <strong>First Name:</strong>
+    <%= @profile.first_name %>
+  </p>
 
-<p>
-  <strong>Second Name:</strong>
-  <%= @profile.second_name %>
-</p>
+  <p>
+    <strong>Second Name:</strong>
+    <%= @profile.second_name %>
+  </p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @profile.username %>
-</p>
+  <p>
+    <strong>Username:</strong>
+    <%= @profile.username %>
+  </p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @profile.age %>
-</p>
+  <p>
+    <strong>Age:</strong>
+    <%= @profile.age %>
+  </p>
 
-<p>
-  <strong>Monthly Income:</strong>
-  <%= @profile.monthly_income %>
-</p>
+  <p>
+    <strong>Monthly Income:</strong>
+    <%= @profile.monthly_income %>
+  </p>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%# <%= link_to 'Back', profiles_path %>
+  <%= link_to 'Edit Profile', edit_profile_path(@profile), class: "btn btn-primary" %>
+</div>
