@@ -1,0 +1,103 @@
+.index-recent-transaction-info {
+  // border: 1px solid red;
+  width: 60%;
+
+  p, h2 {
+    margin: 0px;
+  }
+
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 300;
+    color: grey;
+  }
+}
+
+.expense-amount-and-link {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  align-items: flex-start;
+
+  .item:first-child {
+    align-self: flex-start;
+  }
+
+  .item:last-child {
+    align-self: center;
+  }
+
+}
+
+.index-recent-transaction-card{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgb(159, 159, 159);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Rubik', sans-serif;
+    font-weight:bolder;
+  }
+}
+
+.index-transactions-section {
+
+  h4 {
+  text-align: center;
+  margin: 20px 0px;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: 600;
+  font-variant: small-caps;
+  font-family: 'Rubik', sans-serif;
+  }
+}
+
+.index-recent-transactions{
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 500px;
+}
+
+.expense-index-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.expense-index-totals-container {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.expense-index-total {
+  text-align: center;
+
+  h5 {
+    font-size: 14pt;
+  }
+}
+
+.index-yellow-header {
+  background-color: #FFD84B;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding-top: 50px;
+  padding-bottom: 20px;
+
+  h1 {
+    font-size: 24pt;
+  }
+
+}

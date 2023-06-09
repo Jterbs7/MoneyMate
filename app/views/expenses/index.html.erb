@@ -1,25 +1,39 @@
-<div class="container">
-  <h1 class="mt-4">RECENT EXPENSES</h1>
-  <h1 class="mt-4">Total R <%= @total_expenses %></h1>
-  <h1 class="mt-4">Potential Savings: <%= @potential_savings %>zar</h1>
+<div class="index-yellow-header">
+  <h1 class="mb-3 text-center">RECENT EXPENSES</h1>
+  <div class="expense-index-totals-container">
+    <div class="expense-index-total">
+      <h5><strong>Total: </strong></h5>
+      <h5>R <%= @total_expenses %></h5>
+    </div>
+    <div class="expense-index-total">
+      <h5><strong>Savings: </strong></h5>
+      <h5>R <%= @potential_savings %></h5>
+    </div>
+  </div>
+</div>
 
-  <h2 class="mt-4 mb-4">last 7 days</h2>
+<div class="expense-index-container">
 
-  <div class="list-group">
-    <% @expenses_last_seven_days.each do |expense| %>
-      <div class="list-group-item">
-        <div class="d-flex justify-content-between">
-          <div>
-            <%= expense.description %>: R <%= expense.amount %>
+  <p class="mt-4">LAST 7 DAYS</p>
+
+  <div class="index-transactions-section">
+    <div class="index-recent-transactions">
+      <% @expenses_last_seven_days.each do |expense| %>
+        <div class="index-recent-transaction-card">
+          <div class="index-recent-transaction-info">
+            <h2><%= expense.description %></h2>
+            <p><%= expense.date.strftime("%a %e %b") %></p>
           </div>
-          <div>
-            <%= link_to expense_path(expense) do %>
-              <i class="fa-solid fa-circle-info"></i>
-            <% end %>
+          <div class="expense-amount-and-link">
+            <h2 class="item">R <%= expense.amount %></h2>
+            <div class="item">
+              <%= link_to expense_path(expense) do %>
+                <i class="fa-solid fa-circle-info"></i>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-
 </div>
