@@ -8,6 +8,13 @@ class ExpensesController < ApplicationController
   def index
     @expenses_last_seven_days = Expense.where('created_at >= ?', 7.days.ago)
     @total_expenses = Expense.sum(:amount)
+    @total_income = current_user.profile.monthly_income
+    beginning_of_month = Time.current.beginning_of_month
+    end_of_month = beginning_of_month.end_of_month
+    @total_expenses_current_month = current_user.expenses.where(created_at: beginning_of_month..end_of_month).sum(:amount)
+    # @total_expenses_current_month = Expense.where(user_id: current_user.id).where(created_at: beginning_of_month..end_of_month)
+    # @total_expenses_current_month = Expense.where(user_id: current_user.id)
+    @potential_savings = @total_income - @total_expenses_current_month
   end
 
   def show
