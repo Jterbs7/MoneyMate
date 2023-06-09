@@ -1,0 +1,13 @@
+<div class="text-center">
+  <h1>Categories</h1>
+
+<% categories = ['Food', 'Travel', 'Housing', 'Entertainment'] %>
+<% categories.each do |category| %>
+ <% category_budget = CategoryBudget.find_by(name: category) %>
+    <% if category_budget %>
+      <p class="text-center">
+        <%= link_to category, category_budget_path(category_budget), class: 'btn btn-primary' %>
+      </p>
+    <% end %>
+<% end %>
+</div>

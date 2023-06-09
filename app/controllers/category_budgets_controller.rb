@@ -6,6 +6,14 @@ class CategoryBudgetsController < ApplicationController
   end
 
   def show
-    @category_budgets = CategoryBudget.find(params[:id])
+    @budgets = @category_budget.budgets
   end
+
+
+  private
+
+  def set_category_budget
+    @category_budget = CategoryBudget.find(params[:id])
+  end
+
 end

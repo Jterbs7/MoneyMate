@@ -1,0 +1,23 @@
+<!-- app/views/category_budgets/show.html.erb -->
+
+<div class="container">
+  <div class="text-center">
+    <h1><%= @category_budget.name %></h1>
+    <p><strong>Amount:</strong> <%= @category_budget.amount %></p>
+    <p><strong>Month:</strong> <%= @category_budget.month %></p>
+  </div>
+
+  <h2 class="text-center">Budgets</h2>
+
+  <div class="row justify-content-center">
+    <% @category_budget.budgets.each do |budget| %>
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title"><%= budget.name %></h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
