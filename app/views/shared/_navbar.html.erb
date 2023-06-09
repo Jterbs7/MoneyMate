@@ -8,7 +8,7 @@
       <i class="fa fa-chart-pie"></i>
     <% end %>
 
-    <%= link_to "edit", class: "navbar-brand" do %>
+    <%= link_to new_expense_path, class: "navbar-brand" do %>
       <i class="fa fa-plus"></i>
     <% end %>
 
@@ -16,9 +16,10 @@
       <i class="fa fa-money-bill"></i>
     <% end %>
 
-
-     <%= link_to profile_path(current_user) ,class: "navbar-brand" do %>
-      <i class="fa fa-user"></i>
+    <% if current_user %>
+      <%= link_to profile_path(current_user) ,class: "navbar-brand" do %>
+        <i class="fa fa-user"></i>
+      <% end %>
     <% end %>
 
 
