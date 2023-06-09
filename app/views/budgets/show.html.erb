@@ -1,6 +1,10 @@
-<h1><%= @budget.name %></h1>
+<h1><%= @budget.category.name %>: <%= @budget.name %></h1>
 
-<p><strong>Category</strong> <%= @budget.category %></p>
+
+<% @budget_expenses.each do |expense| %>
+  <p><%= expense.description %> - <%= expense.amount %> - <%= expense.date.strftime( "%A %e %b %Y") %></p>
+<% end %>
+
 
 <%= link_to 'Edit', edit_budget_path(@budget) %> |
 <%= link_to 'Delete', budget_path(@budget), method: :delete, data: { confirm: 'Are you sure?' } %>
