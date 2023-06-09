@@ -6,7 +6,7 @@ class ExpensesController < ApplicationController
   # end
 
   def index
-    @expenses_last_seven_days = Expense.where('created_at >= ?', 7.days.ago)
+    @expenses_last_seven_days = Expense.where('date >= ?', 7.days.ago.to_date)
     @total_expenses = Expense.sum(:amount)
     @total_income = current_user.profile.monthly_income
     beginning_of_month = Time.current.beginning_of_month
