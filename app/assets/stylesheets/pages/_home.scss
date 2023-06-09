@@ -32,8 +32,14 @@
   padding: 10px;
 }
 
-.graph-section img{
-  width: 80%;
+.graph-section {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+
+  img {
+    width: 80%;
+  }
 }
 .transactions-section h4{
   text-align: center;
