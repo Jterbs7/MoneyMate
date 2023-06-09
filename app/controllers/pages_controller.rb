@@ -1,8 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
-
   def home
-
-  @expenses = Expense.all
+    @expenses = Expense.all.sort_by(&:date).reverse
   end
 end
