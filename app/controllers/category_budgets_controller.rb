@@ -1,5 +1,5 @@
 class CategoryBudgetsController < ApplicationController
-  before_action :set_category_budget, except: [:index, :new, :create]
+  before_action :set_category_budget, only [:show]
 
   def index
     @category_budgets = CategoryBudget.all
@@ -8,7 +8,7 @@ class CategoryBudgetsController < ApplicationController
   def show
     @budgets = @category_budget.budgets
   end
-
+  
   private
 
   def set_category_budget
