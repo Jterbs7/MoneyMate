@@ -14,5 +14,4 @@ class CategoryBudgetsController < ApplicationController
   def set_category_budget
     @category_budget = CategoryBudget.find(params[:id])
   end
-
 end
