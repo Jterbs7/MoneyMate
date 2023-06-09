@@ -4,13 +4,16 @@ class BudgetsController < ApplicationController
     @budgets = current_user.budgets
   end
 
-    def show
-      @budget = Budget.find(params[:id]) unless params[:id] == 'new'
+  def show
+    @budget = Budget.find(params[:id]) unless params[:id] == 'new'
 
-      if @budget.nil?
-        redirect_to new_budget_path, alert: 'Budget not found.'
-      end
+    if @budget.nil?
+      redirect_to new_budget_path, alert: 'Budget not found.'
     end
+    # get all expenses with "budget" as category budget
+    @budget_expenses = Expense.where(budget: @budget)
+    @total_expenses = @budget_expenses.sum(:amount)
+  end
 
   def new
     @budget = Budget.new
@@ -49,6 +52,6 @@ class BudgetsController < ApplicationController
   private
 
   def budget_params
-    params.require(:budget).permit(:name, :amount) 
+    params.require(:budget).permit(:name, :amount)
   end
 end
