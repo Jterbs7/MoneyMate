@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :profiles, only: [:new, :create, :show, :edit, :update] # This creates routes for profile#edit and profile#update
   resources :category_budgets, only: [:show, :index]
   resources :budgets, only: [:new, :create, :index, :show, :edit, :update]
-  resources :expenses, only: [:new, :create, :index, :show]
+  resources :expenses
 end
