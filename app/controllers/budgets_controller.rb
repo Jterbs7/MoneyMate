@@ -49,6 +49,6 @@ class BudgetsController < ApplicationController
   private
 
   def budget_params
-    params.require(:budget).permit(:name, :description) # Adjust permitted parameters as per your budget model
+    params.require(:budget).permit(:name, :amount) 
   end
 end
