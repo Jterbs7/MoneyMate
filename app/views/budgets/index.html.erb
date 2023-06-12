@@ -1,4 +1,7 @@
 <div class="budgets-index-container">
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="50"></div>
+  </div>
   <div class="category-budgets-index-header">
     <h1 class="text-center">YOUR BUDGETS</h1>
     <%= link_to new_budget_path do %>
@@ -13,7 +16,22 @@
       <% @budgets.each do |budget| %>
         <div class="budget-category-card">
           <%= link_to budget.name, budget %>
-        </div>
+          <% expenses_total = 0 %>
+          <% budget.expenses.each do |expense|%>
+            <% expenses_total += expense.amount %>
+          <% end %>
+          <% expenses_total %>
+          <br>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar"
+            style="width: 25%;" aria-valuenow="100"
+            aria-valuemin="0" aria-valuemax="100"><%= (expenses_total/budget.amount) * 100 %>
+            </div>
+          </div>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+      </div>
       <% end %>
     </div>
   <% end %>
