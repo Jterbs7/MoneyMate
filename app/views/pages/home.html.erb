@@ -12,8 +12,17 @@
 
   <%# <%= pie_chart @data,donut: true %>
 <div class="chart-card">
+<div>
   <%= pie_chart CategoryBudget.group(:name).sum(:amount),donut: true %>
+  </div>
+
+<div>
+  <%= line_chart Expense.where(date: 6.months.ago..Time.now)
+                        .group_by_month(:date)
+                        .sum(:amount) %>
 </div>
+</div>
+
   <%# <div class="budget-category-card">
     <div class="graph-section">
       <canvas id="myChart" ></canvas>
