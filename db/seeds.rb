@@ -11,6 +11,7 @@ puts "Clearing the database..."
 Expense.destroy_all
 Budget.destroy_all
 CategoryBudget.destroy_all
+Profile.destroy_all
 User.destroy_all
 
 # create a few users
@@ -296,7 +297,7 @@ Budget.all.each do |budget|
       amount: rand(1..600),
       description: description,
       merchant: merchant,
-      date: Faker::Date.between(from: 4.weeks.ago, to: Date.today),
+      date: Faker::Date.between(from: 24.weeks.ago, to: Date.today),
       budget: budget
     )
   end

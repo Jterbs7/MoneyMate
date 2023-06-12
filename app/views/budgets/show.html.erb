@@ -1,10 +1,12 @@
-<h1><%= @budget.category.name %>: <%= @budget.name %></h1>
+<div class="budget-show-container">
+  <h1 class="text-center"><%= @budget.category.name %>: <%= @budget.name %></h1>
 
 
-<% @budget_expenses.each do |expense| %>
-  <p><%= expense.description %> - <%= expense.amount %> - <%= expense.date.strftime( "%A %e %b %Y") %></p>
-<% end %>
+  <% @budget_expenses.each do |expense| %>
+    <p><%= expense.description %> - <%= expense.amount %> - <%= expense.date.strftime( "%A %e %b %Y") %></p>
+  <% end %>
 
 
-<%= link_to 'Edit', edit_budget_path(@budget) %> |
-<%= link_to 'Delete', budget_path(@budget), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Edit', edit_budget_path(@budget) %> |
+  <%= link_to 'Delete', budget_path(@budget), method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>

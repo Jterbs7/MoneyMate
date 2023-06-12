@@ -41,6 +41,7 @@
     width: 80%;
   }
 }
+
 .transactions-section h4{
   text-align: center;
   margin: 20px 0px;
@@ -100,6 +101,7 @@
   background-color: white;
   border-radius: 15px;
   height: auto;
-  padding: 20px; // Adds some space inside the card around the chart
-  margin-bottom: 20px; // Adds some space below the card
+  padding: 20px;
+  margin-bottom: 20px;
+  overflow-x: auto;
 }
