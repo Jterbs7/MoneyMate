@@ -10,15 +10,16 @@
     </div>
   </div>
 
-  <%# <%= pie_chart @data,donut: true %>
 <div class="chart-card">
   <%= pie_chart CategoryBudget.group(:name).sum(:amount),donut: true %>
 </div>
-  <%# <div class="budget-category-card">
-    <div class="graph-section">
-      <canvas id="myChart" ></canvas>
-    </div>
-  </div> %>
+
+  <div class="chart-card">
+    <%= column_chart [
+      {name: "Budget", data: Budget.group(:name).sum(:amount), stack: "Stack 1"},
+      {name: "Spent", data: Expense.joins(:budget).where(date: Time.now.beginning_of_month..Time.now.end_of_month).group('budgets.name').sum(:amount), stack: "Stack 2"}
+    ] %>
+  </div>
 
   <div class="transactions-section">
     <h4>Recent Transactions</h4>
