@@ -139,7 +139,7 @@ subscriptions_category = CategoryBudget.create!(
   user_id: main_user.id
 )
 
-subscriptions_budget_names = ['Streaming Services', 'Software Subscriptions', 'Gym', 'Gaming']
+subscriptions_budget_names = ['Streaming Services', 'Software Subscriptions', 'Gaming']
 
 subscriptions_budget_names.each do |name|
   Budget.create!(
@@ -211,16 +211,123 @@ puts "#{CategoryBudget.count} budget categories created and #{Budget.count} budg
 # end
 puts "Creating some expenses"
 
+expenses_categories = {
+  "Travel" => {
+    "Uber" => ["Uber Ride"],
+    "Train" => ["Metrorail", "Gautrain"],
+    "Bus" => ["Greyhound", "Megabus"],
+    "Fuel" => ["Engen", "Sasol", "BP"]
+  },
+  "Accommodation" => {
+    "Rent" => ["Rent Payment"],
+    "Hotel" => ["Marriott", "Holiday Inn"]
+  },
+  "Utilities" => {
+    "Electricity" => ["Eskom"],
+    "Gas" => ["Eskom"],
+    "Phone" => ["MTN"],
+    "Water" => ["Siza"],
+    "Internet" => ["Lightspeed"],
+    "Home Insurance" => ["Hippo"]
+  },
+  "Lifestyle" => {
+    "Eating Out" => ["Villa 47", "Belly of The Beast", "Kloof Street House", "Zsa Zsa", "Test Kitchen", "Pot Luck Club"],
+    "Movies" => ["Nu Metro"],
+    "Rugby" => ["Newlands"],
+    "Gigs" => ["Kirstenbosch"],
+    "Gym" => ["Virgin"]
+  },
+  "Groceries" => {
+    "Food" => ["Woolworths"],
+    "Cleaning Supplies" => ["Checkers"],
+    "Pet Food" => ["Pets Planet"],
+    "Toiletries" => ["Clicks"]
+  },
+  "Subscriptions" => {
+    "Streaming Services" => ["Netflix", "Hulu", "DSTV"],
+    "Software Subscriptions" => ["Microsoft Office", "Adobe Suite"],
+    "Gaming" => ["Xbox Live", "Playstation Plus"]
+  },
+  "Personal Shopping" => {
+    "Clothing" => ["Zara", "H&M"],
+    "Beauty Products" => ["Clicks"],
+    "Treats" => ["iStore", "Takealot"]
+  },
+  "Savings" => {
+    "Holiday" => ["Holiday Savings"],
+    "New car" => ["Car Savings"],
+    "Macbook Pro" => ["Macbook Savings"]
+  },
+  "Education" => {
+    "Uni Fees" => ["UCT"],
+    "Le Wagon" => ["Le Wagon Fee"],
+    "Books" => ["Exclusive Books"]
+  }
+}
+
+single_monthly_expenses = {
+  "Travel" => ["Fuel"],
+  "Accommodation" => ["Rent", "Hotel"],
+  "Utilities" => ["Electricity", "Gas", "Phone", "Water", "Internet", "Home Insurance"],
+  "Subscriptions" => ["Streaming Services", "Software Subscriptions", "Gaming"],
+  "Savings" => ["Holiday", "New car", "Macbook Pro"],
+  "Education" => ["Uni Fees", "Le Wagon"]
+}
+
 Budget.all.each do |budget|
-  8.times do
+  num_expenses = if single_monthly_expenses[budget.category.name]&.include?(budget.name)
+                   1
+                 else
+                   rand(1..6)
+                 end
+
+  num_expenses.times do
+    if expenses_categories[budget.category.name] && expenses_categories[budget.category.name][budget.name]
+      description = expenses_categories[budget.category.name][budget.name].sample
+      merchant = expenses_categories[budget.category.name][budget.name].sample
+    else
+      description = "Other"
+      merchant = "Other"
+    end
+
     Expense.create!(
       amount: rand(1..600),
-      description: Faker::Beer.name,
-      merchant: Faker::Fantasy::Tolkien.character,
+      description: description,
+      merchant: merchant,
       date: Faker::Date.between(from: 4.weeks.ago, to: Date.today),
       budget: budget
     )
   end
 end
+# Budget.all.each do |budget|
+#   8.times do
+#     if expenses_categories[budget.category.name] && expenses_categories[budget.category.name][budget.name]
+#       description = expenses_categories[budget.category.name][budget.name].sample
+#       merchant = expenses_categories[budget.category.name][budget.name].sample
+#     else
+#       description = "Other"
+#       merchant = "Other"
+#     end
+
+#     Expense.create!(
+#       amount: rand(1..600),
+#       description: description,
+#       merchant: merchant,
+#       date: Faker::Date.between(from: 4.weeks.ago, to: Date.today),
+#       budget: budget
+#     )
+#   end
+# end
+# Budget.all.each do |budget|
+#   8.times do
+#     Expense.create!(
+#       amount: rand(1..600),
+#       description: Faker::Beer.name,
+#       merchant: Faker::Fantasy::Tolkien.character,
+#       date: Faker::Date.between(from: 4.weeks.ago, to: Date.today),
+#       budget: budget
+#     )
+#   end
+# end
 
 puts "Done"

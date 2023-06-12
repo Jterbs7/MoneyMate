@@ -12,28 +12,64 @@
   </div>
 </div>
 
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: expenses_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type a keyword"
+        %>
+      <%= submit_tag "Search", merchant: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
 <div class="expense-index-container">
-
-  <p class="mt-4">LAST 7 DAYS</p>
-
-  <div class="index-transactions-section">
-    <div class="index-recent-transactions">
-      <% @expenses_last_seven_days.each do |expense| %>
-        <div class="index-recent-transaction-card">
-          <div class="index-recent-transaction-info">
-            <h2><%= expense.description %></h2>
-            <p><%= expense.date.strftime("%a %e %b") %></p>
-          </div>
-          <div class="expense-amount-and-link">
-            <h2 class="item">R <%= expense.amount %></h2>
-            <div class="item">
-              <%= link_to expense_path(expense) do %>
-                <i class="fa-solid fa-circle-info"></i>
-              <% end %>
+  <% if @expenses_search.present? %>
+    <p class="mt-4">SEARCH RESULTS :</p>
+    <div class="index-transactions-section">
+      <div class="index-recent-transactions">
+        <% @expenses_search.each do |expense| %>
+          <div class="index-recent-transaction-card">
+            <div class="index-recent-transaction-info">
+              <h2><%= expense.description %></h2>
+              <p><%= expense.date.strftime("%a %e %b") %></p>
+            </div>
+            <div class="expense-amount-and-link">
+              <h2 class="item">R <%= expense.amount %></h2>
+              <div class="item">
+                <%= link_to expense_path(expense) do %>
+                  <i class="fa-solid fa-circle-info"></i>
+                <% end %>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
+  <% else %>
+    <p class="mt-4">LAST 7 DAYS..</p>
+
+    <div class="index-transactions-section">
+      <div class="index-recent-transactions">
+        <% @expenses_last_seven_days.each do |expense| %>
+          <div class="index-recent-transaction-card">
+            <div class="index-recent-transaction-info">
+              <h2><%= expense.description %></h2>
+              <p><%= expense.date.strftime("%a %e %b") %></p>
+            </div>
+            <div class="expense-amount-and-link">
+              <h2 class="item">R <%= expense.amount %></h2>
+              <div class="item">
+                <%= link_to expense_path(expense) do %>
+                  <i class="fa-solid fa-circle-info"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>

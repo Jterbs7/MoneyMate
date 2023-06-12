@@ -6,13 +6,23 @@ class ExpensesController < ApplicationController
   # end
 
   def index
-    @expenses_last_seven_days = Expense.where('date >= ?', 7.days.ago.to_date)
+    @expenses_search = nil
+    @expenses_last_seven_days = Expense.where('date >= ?', 7.days.ago.to_date).order(date: :desc)
     @total_expenses = Expense.sum(:amount)
     @total_income = current_user.profile.monthly_income
     beginning_of_month = Time.current.beginning_of_month
     end_of_month = beginning_of_month.end_of_month
     @total_expenses_current_month = current_user.expenses.where(created_at: beginning_of_month..end_of_month).sum(:amount)
     @potential_savings = @total_income - @total_expenses_current_month
+    if params[:query].present?
+      @expenses_search = Expense.joins(budget: :category)
+                                .where('expenses.merchant ILIKE :query
+                                        OR expenses.description ILIKE :query
+                                        OR budgets.name ILIKE :query
+                                        OR category_budgets.name ILIKE :query',
+                                        query: "%#{params[:query]}%")
+                                .order(date: :desc)
+    end
   end
 
   def show
