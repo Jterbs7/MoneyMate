@@ -10,9 +10,15 @@
     </div>
   </div>
 
-  <div class="graph-section">
-   <img src="https://math.andyou.com/content/02/04/images/mu_pe_02_04_015.png">
-  </div>
+  <%# <%= pie_chart @data,donut: true %>
+<div class="chart-card">
+  <%= pie_chart CategoryBudget.group(:name).sum(:amount),donut: true %>
+</div>
+  <%# <div class="budget-category-card">
+    <div class="graph-section">
+      <canvas id="myChart" ></canvas>
+    </div>
+  </div> %>
 
   <div class="transactions-section">
     <h4>Recent Transactions</h4>

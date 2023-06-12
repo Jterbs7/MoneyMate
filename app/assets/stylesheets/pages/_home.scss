@@ -93,3 +93,13 @@
     color: grey;
   }
 }
+.chart-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 15px;
+  height: auto;
+  padding: 20px; // Adds some space inside the card around the chart
+  margin-bottom: 20px; // Adds some space below the card
+}
