@@ -274,11 +274,13 @@ single_monthly_expenses = {
   "Education" => ["Uni Fees", "Le Wagon"]
 }
 
+# ----------------------------------
+
 Budget.all.each do |budget|
   num_expenses = if single_monthly_expenses[budget.category.name]&.include?(budget.name)
                    1
                  else
-                   rand(1..6)
+                   rand(1..10)
                  end
 
   num_expenses.times do
@@ -299,6 +301,8 @@ Budget.all.each do |budget|
     )
   end
 end
+
+# --------------------
 # Budget.all.each do |budget|
 #   8.times do
 #     if expenses_categories[budget.category.name] && expenses_categories[budget.category.name][budget.name]
