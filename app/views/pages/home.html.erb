@@ -4,13 +4,19 @@
   <div class="top-message-section">
     <img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtriFhIQBG7UD6xWQWA_xDB-quP3WKTpIdng&usqp=CAU" alt= "image" >
     <div class="greeting">
-      <h2>Good morning<h2>
+      <% current_hour = Time.now.hour %>
+      <% if current_hour < 12 %>
+        <h2>Good Morning<h2>
+      <% elsif  current_hour < 18 %>
+        <h2>Good Afternoon</h2>
+      <% else %>
+        <h2>Good Evening</h2>
+      <% end %>
       <h1><%= current_user.profile.first_name %><h1>
 
     </div>
   </div>
 
-  <%# <%= pie_chart @data,donut: true %>
 <div class="chart-card">
 <div>
   <%= pie_chart CategoryBudget.group(:name).sum(:amount),donut: true %>
@@ -21,13 +27,13 @@
                         .group_by_month(:date)
                         .sum(:amount) %>
 </div>
-</div>
 
-  <%# <div class="budget-category-card">
-    <div class="graph-section">
-      <canvas id="myChart" ></canvas>
-    </div>
-  </div> %>
+  <div class="chart-card">
+    <%= column_chart [
+      {name: "Budget", data: Budget.group(:name).sum(:amount), stack: "Stack 1"},
+      {name: "Spent", data: Expense.joins(:budget).where(date: Time.now.beginning_of_month..Time.now.end_of_month).group('budgets.name').sum(:amount), stack: "Stack 2"}
+    ] %>
+  </div>
 
   <div class="transactions-section">
     <h4>Recent Transactions</h4>

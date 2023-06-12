@@ -13,7 +13,21 @@
       <% @budgets.each do |budget| %>
         <div class="budget-category-card">
           <%= link_to budget.name, budget %>
-        </div>
+          <% start_date = 1.month.ago.beginning_of_day %>
+          <% end_date = Time.current.end_of_day %>
+          <% monthly_expenses_total = 0 %>
+          <% budget.expenses.each do |expense| %>
+            <% if expense.date >= start_date && expense.date <= end_date %>
+              <% monthly_expenses_total += expense.amount %>
+            <% end %>
+          <% end %>
+          <% expenses_as_percentage_of_budget = (monthly_expenses_total/budget.amount) * 100 %>
+          <div class="w-75">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: <%= expenses_as_percentage_of_budget%>%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><%= expenses_as_percentage_of_budget.floor %>%</div>
+            </div>
+          </div>
+      </div>
       <% end %>
     </div>
   <% end %>
