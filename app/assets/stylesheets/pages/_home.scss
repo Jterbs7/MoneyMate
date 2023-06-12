@@ -18,6 +18,7 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+
 }
 
 .top-message-section p {
@@ -101,7 +102,15 @@
   background-color: white;
   border-radius: 15px;
   height: auto;
-  padding: 20px;
+  padding: 30px;
   margin-bottom: 20px;
-  overflow-x: auto;
+  margin: 20px
+}
+
+.chart-cards-section {
+  display: flex;
+  padding: 25px 0px;
+  list-style: none;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
 }
