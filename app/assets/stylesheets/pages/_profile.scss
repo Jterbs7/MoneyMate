@@ -12,19 +12,20 @@
     margin-bottom: 40px;
   }
 }
-.main-profile-card{
- background-color: white;
- width: 100%;
- border: 1px solid #ccc;
- border-radius: 20px;
- padding: 16px;
- box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-  margin: 0px;
-  position: absolute;
-  top: 160px;
-  }
-  .btn{
 
+.main-profile-card{
+  background-color: white;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    margin: 0px;
+    position: absolute;
+    top: 160px;
+  }
+
+  .btn {
   background-color: #FFFFFF;
   border: 0;
   border-radius: .5rem;
@@ -46,7 +47,6 @@
   width: 100%;
   position: absolute;
   bottom: 100px;
-  width: 100%;
 }
 
 .btn:hover {

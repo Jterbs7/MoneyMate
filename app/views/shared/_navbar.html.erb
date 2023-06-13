@@ -1,35 +1,93 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-money-mate">
-  <div class="container-fluid">
+<div class="navbar-money-mate">
 
-    <div class="<%= 'navbar-icon-box' if current_page?(root_path) %>">
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <i class="fa fa-home"></i>
-      <% end %>
-    </div>
+    <% if current_page?(root_path) %>
 
-    <div class="<%= 'navbar-icon-box' if current_page?(budgets_path) %>">
-      <%= link_to budgets_path, class: "navbar-brand" do %>
-        <i class="fa fa-chart-pie"></i>
-      <% end %>
-    </div>
+      <div class="navbar-icon-box-active">
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <i class="fa fa-home"></i>
+        <% end %>
+      </div>
 
-    <div class="<%= 'navbar-icon-box' if current_page?(new_expense_path) %>">
-      <%= link_to new_expense_path, class: "navbar-brand" do %>
-        <i class="fa fa-plus"></i>
-      <% end %>
-    </div>
+    <% else %>
 
-    <div class="<%= 'navbar-icon-box' if current_page?(expenses_path) %>">
-      <%= link_to expenses_path ,class: "navbar-brand" do %>
-        <i class="fa fa-money-bill"></i>
-      <% end %>
-    </div>
+      <div class="navbar-icon-box">
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <i class="fa fa-home"></i>
+        <% end %>
+      </div>
 
-    <div class="<%= 'navbar-icon-box' if current_page?(profile_path(current_user)) %>">
-      <%= link_to profile_path(current_user) ,class: "navbar-brand" do %>
-        <i class="fa fa-user"></i>
-      <% end %>
-    </div>
+    <% end %>
 
-  </div>
+    <% if current_page?(budgets_path) %>
+
+      <div class="navbar-icon-box-active">
+        <%= link_to budgets_path, class: "navbar-brand" do %>
+          <i class="fa fa-chart-pie"></i>
+        <% end %>
+      </div>
+
+    <% else %>
+
+      <div class="navbar-icon-box">
+        <%= link_to budgets_path, class: "navbar-brand" do %>
+          <i class="fa fa-chart-pie"></i>
+        <% end %>
+      </div>
+
+    <% end %>
+
+    <% if current_page?(new_expense_path) %>
+
+      <div class="navbar-icon-box-active">
+        <%= link_to new_expense_path, class: "navbar-brand" do %>
+          <i class="fa fa-plus fa-lg"></i>
+        <% end %>
+      </div>
+
+    <% else %>
+
+      <div class="navbar-icon-box">
+        <%= link_to new_expense_path, class: "navbar-brand" do %>
+          <i class="fa fa-plus fa-lg"></i>
+        <% end %>
+      </div>
+
+    <% end %>
+
+    <% if current_page?(expenses_path) %>
+
+      <div class="navbar-icon-box-active">
+        <%= link_to expenses_path ,class: "navbar-brand" do %>
+          <i class="fa fa-money-bill"></i>
+        <% end %>
+      </div>
+
+    <% else %>
+
+      <div class="navbar-icon-box">
+        <%= link_to expenses_path ,class: "navbar-brand" do %>
+          <i class="fa fa-money-bill"></i>
+        <% end %>
+      </div>
+
+    <% end %>
+
+    <% if current_page?(profile_path(current_user)) %>
+
+      <div class="navbar-icon-box-active">
+        <%= link_to profile_path(current_user) ,class: "navbar-brand" do %>
+          <i class="fa fa-user"></i>
+        <% end %>
+      </div>
+
+    <% else %>
+
+      <div class="navbar-icon-box">
+        <%= link_to profile_path(current_user) ,class: "navbar-brand" do %>
+          <i class="fa fa-user"></i>
+        <% end %>
+      </div>
+
+    <% end %>
+
 </div>
