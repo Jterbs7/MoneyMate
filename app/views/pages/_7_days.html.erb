@@ -1,0 +1,15 @@
+ 
+<div class="chart-card">
+  <%= pie_chart CategoryBudget.group(:name).sum(:amount),donut: true %>
+</div>
+<div class="chart-card">
+  <%= line_chart Expense.where(date: 7.days.ago..Time.now)
+                                  .group_by_day(:date)
+                                  .sum(:amount) %>
+</div>
+<div class="chart-card">
+  <%= column_chart [
+                      {name: "Budget", data: Budget.group(:name).sum(:amount), stack: "Stack 1"},
+                      {name: "Spent", data: Expense.joins(:budget).where(date: Time.now.beginning_of_month..Time.now.end_of_month).group('budgets.name').sum(:amount), stack: "Stack 2"}
+                    ] %>
+</div>
