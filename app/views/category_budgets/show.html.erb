@@ -1,23 +1,37 @@
 <!-- app/views/category_budgets/show.html.erb -->
 
 <div class="container">
-  <div class="text-center">
-    <h1><%= @category_budget.name %></h1>
-    <p><strong>Amount:</strong> <%= @category_budget.amount %></p>
-    <p><strong>Month:</strong> <%= @category_budget.month %></p>
-  </div>
+ <div class="text-center">
+   <h1><%= @category_budget.name %></h1>
+   <p><strong>Target:</strong> <%= @category_budget.amount %></p>
+ </div>
 
-  <h2 class="text-center">Budgets</h2>
 
-  <div class="row justify-content-center">
-    <% @category_budget.budgets.each do |budget| %>
-      <div class="col-md-4">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title"><%= budget.name %></h5>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
+ <h2 class="text-center">Budgets</h2>
+
+ <div class="budget-category-cards-container">
+   <% @category_budget.budgets.each do |budget| %>
+     <div class="budget-category-card">
+       <%= link_to budget.name, budget %>
+       <% start_date = 1.month.ago.beginning_of_day %>
+       <% end_date = Time.current.end_of_day %>
+       <% monthly_expenses_total = 0 %>
+       <% budget.expenses.each do |expense| %>
+         <% if expense.date >= start_date && expense.date <= end_date %>
+           <% monthly_expenses_total += expense.amount %>
+         <% end %>
+       <% end %>
+       <% expenses_as_percentage_of_budget = (monthly_expenses_total/budget.amount) * 100 %>
+       <div class="w-75">
+         <div class="progress">
+           <% if expenses_as_percentage_of_budget > 100 %>
+             <div class="progress-bar bg-danger" role="progressbar" style="width: <%= [expenses_as_percentage_of_budget, 100].min %>%;" aria-valuenow="<%= [expenses_as_percentage_of_budget, 100].min %>" aria-valuemin="0" aria-valuemax="100"><%= expenses_as_percentage_of_budget.floor %>%</div>
+           <% else %>
+             <div class="progress-bar" role="progressbar" style="width: <%= expenses_as_percentage_of_budget %>%;" aria-valuenow="<%= expenses_as_percentage_of_budget %>" aria-valuemin="0" aria-valuemax="100"><%= expenses_as_percentage_of_budget.floor %>%</div>
+           <% end %>
+         </div>
+       </div>
+     </div>
+   <% end %>
+ </div>
 </div>

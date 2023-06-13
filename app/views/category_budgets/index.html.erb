@@ -1,13 +1,23 @@
+<!-- app/views/category_budgets/index.html.erb -->
+
 <div class="text-center">
   <h1>Categories</h1>
+</div>
 
-<% categories = ['Food', 'Travel', 'Housing', 'Entertainment'] %>
-<% categories.each do |category| %>
- <% category_budget = CategoryBudget.find_by(name: category) %>
-    <% if category_budget %>
-      <p class="text-center">
-        <%= link_to category, category_budget_path(category_budget), class: 'btn btn-primary' %>
-      </p>
-    <% end %>
-<% end %>
+<div class="budget-category-cards-container">
+  <% @category_budgets.each do |category_budget| %>
+    <div class="budget-category-card">
+      <%= link_to category_budget.name, category_budget %>
+      <% expense_percentage = @category_budgets_expense_percentages[category_budget.id] %>
+      <div class="w-75">
+        <div class="progress">
+          <% if expense_percentage > 100 %>
+            <div class="progress-bar bg-danger" role="progressbar" style="width: <%= [expense_percentage, 100].min %>%;" aria-valuenow="<%= [expense_percentage, 100].min %>" aria-valuemin="0" aria-valuemax="100"><%= expense_percentage %>%</div>
+          <% else %>
+            <div class="progress-bar" role="progressbar" style="width: <%= expense_percentage %>%;" aria-valuenow="<%= expense_percentage %>" aria-valuemin="0" aria-valuemax="100"><%= expense_percentage %>%</div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
