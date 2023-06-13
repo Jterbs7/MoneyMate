@@ -1,12 +1,14 @@
 <!-- app/views/budgets/index.html.erb -->
 
-<div class="budgets-index-container">
+<div class="index-yellow-header">
   <div class="category-budgets-index-header">
     <h1 class="text-center">YOUR BUDGETS</h1>
     <%= link_to new_budget_path do %>
       <i class="fa-solid fa-plus"></i>
     <% end %>
   </div>
+</div>
+<div class="budgets-index-container">
 
   <% if @budgets.empty? %>
     <p>No budgets found</p>

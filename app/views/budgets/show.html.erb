@@ -1,6 +1,6 @@
 <!-- app/views/budgets/show.html.erb -->
 <div class="budget-show-container">
-  <h1 class="text-center"><%= @budget.category.name %>: <%= @budget.name %></h1>
+  <h1 class="text-center"><%= @budget.category_budget.name %>: <%= @budget.name %></h1>
 
 
   <% @budget_expenses.each do |expense| %>

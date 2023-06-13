@@ -1,4 +1,10 @@
+<%= link_to :back do %>
+ <i class="fa-solid fa-arrow-left"></i>
+ <% end %>
 <div class="profile-show-container">
+
+  <div class="main-profile-card">
+
   <h1><%= @profile.first_name %> <%= @profile.second_name %>'s Profile</h1>
 
   <p>
@@ -25,6 +31,6 @@
     <strong>Monthly Income:</strong>
     <%= @profile.monthly_income %>
   </p>
-
-  <%= link_to 'Edit Profile', edit_profile_path(@profile), class: "btn btn-primary" %>
+  </div>
 </div>
+  <%= link_to 'Edit Profile', edit_profile_path(@profile), class: "btn" %>
