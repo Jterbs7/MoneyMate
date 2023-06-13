@@ -1,16 +1,6 @@
 .profile-show-container {
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
-  position: relative;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-
-
-  h1 {
-    margin-top: 60px;
-    margin-bottom: 40px;
-  }
 }
 
 .main-profile-card{
@@ -20,12 +10,9 @@
   border-radius: 20px;
   padding: 16px;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-    margin: 0px;
-    position: absolute;
-    top: 160px;
   }
 
-  .btn {
+  .money-mate-button {
   background-color: #FFFFFF;
   border: 0;
   border-radius: .5rem;
@@ -45,19 +32,22 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   width: 100%;
-  position: absolute;
-  bottom: 100px;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
-.btn:hover {
+.money-mate-button:hover {
   background-color: rgb(249,250,251);
 }
 
-.btn:focus {
+.money-mate-button:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
 
-.btn:focus-visible {
+.money-mate-button:focus-visible {
   box-shadow: none;
 }
