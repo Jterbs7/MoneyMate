@@ -1,0 +1,12 @@
+<%= simple_form_for(@budget) do |f| %>
+  <%= f.input :name %>
+  <%# <%= f.association :category, input_html: { value: budget.category } %>
+  <%= f.association :category_budget, prompt: 'Select a Category' %>
+  <%= f.input :amount %>
+
+
+
+<div class="form-actions">
+  <%= f.button :submit %>
+  </div>
+<% end %>

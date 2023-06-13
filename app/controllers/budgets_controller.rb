@@ -20,7 +20,8 @@ class BudgetsController < ApplicationController
   end
 
   def create
-    @budget = current_user.budgets.new(budget_params)
+    @budget = Budget.new(budget_params)
+    # @budget.user = current_user
 
     if @budget.save
       redirect_to @budget, notice: 'Budget created successfully 🎉🎉🎉'
@@ -52,6 +53,6 @@ class BudgetsController < ApplicationController
   private
 
   def budget_params
-    params.require(:budget).permit(:name, :amount)
+    params.require(:budget).permit(:name, :amount, :category_budget_id)
   end
 end
