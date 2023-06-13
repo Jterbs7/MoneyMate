@@ -1,6 +1,6 @@
-<%= simple_form_for(budget) do |f| %>
+<%= simple_form_for(@budget) do |f| %>
   <%= f.input :name %>
-  <%# <%= f.input :category, input_html: { value: budget.category } %> %> 
+  <%# <%= f.input :category, input_html: { value: budget.category } %> %>
   <%= f.input :amount %>
 
   <%= f.button :submit %>

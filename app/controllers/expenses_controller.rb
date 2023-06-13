@@ -31,6 +31,7 @@ class ExpensesController < ApplicationController
 
   def new
     @expense = Expense.new
+    @budget = Budget.new
   end
 
   def create
@@ -40,6 +41,12 @@ class ExpensesController < ApplicationController
     else
       render :new
     end
+    # @budget = Budget.new(budget_params)
+    # if @budget.save
+    #   redirect_to @budget, notice: 'Budget was successfully added.'
+    # else
+    #   render :new
+    # end
   end
 
   def edit
@@ -66,5 +73,9 @@ class ExpensesController < ApplicationController
 
   def expense_params
     params.require(:expense).permit(:amount, :description, :merchant, :date, :budget_id)
+  end
+
+  def budget_params
+    params.require(:budget).permit(:name, :amount, :category_budget_id)
   end
 end
