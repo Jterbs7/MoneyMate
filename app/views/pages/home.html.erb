@@ -4,46 +4,59 @@
     <div class="greeting">
       <% current_hour = Time.now.hour %>
       <% if current_hour < 12 %>
-        <h2>Good Morning</h2>
-      <% elsif  current_hour < 18 %>
-        <h2>Good Afternoon</h2>
-      <% else %>
-        <h2>Good Evening</h2>
-      <% end %>
-      <h1><%= current_user.profile.first_name %></h1>
-    </div>
-  </div>
-  <div class="chart-cards-section">
-    <div class="chart-card">
-      <%= pie_chart CategoryBudget.group(:name).sum(:amount),donut: true %>
-    </div>
-    <div class="chart-card">
-      <%= line_chart Expense.where(date: 6.months.ago..Time.now)
-                          .group_by_month(:date)
-                          .sum(:amount) %>
-    </div>
-    <div class="chart-card">
-      <%= column_chart [
-              {name: "Budget", data: Budget.group(:name).sum(:amount), stack: "Stack 1"},
-              {name: "Spent", data: Expense.joins(:budget).where(date: Time.now.beginning_of_month..Time.now.end_of_month).group('budgets.name').sum(:amount), stack: "Stack 2"}
-            ] %>
-    </div>
-  </div>
-  <div class="chart-card">
-    <%= @message %>
-  </div>
-  <div class="transactions-section">
+        <h2>Good Morning
+          <h2>
+          <% elsif  current_hour < 18 %>
+            <h2>Good Afternoon</h2>
+          <% else %>
+            <h2>Good Evening</h2>
+          <% end %>
+          <h1><%= current_user.profile.first_name %>
+            <h1>
+            </div>
+          </div>
+          <div data-controller="toggle">
+            <div class="toggle-buttons d-flex justify-content-between">
+              <div class="day-button" data-toggle-target="day-button" data-action="click->toggle#day">
+                7 Days
+              </div>
+              <div class="month-button" data-toggle-target="month-button" data-action="click->toggle#month">
+                Month
+              </div>
+              <div class="year-button" data-toggle-target="year-button" data-action="click->toggle#year">
+                Year
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="chart-cards-section" data-toggle-target="day">
+                <%= render "7_days"  %>
+              </div>
+              <div class="chart-cards-section" data-toggle-target="month" >
+                <%= render "month", month_chart: @month_chart %>
+              </div>
+              <div class="chart-cards-section" data-toggle-target="year">
+                <%= render "year" %>
+              </div>
+            </div>
+            <div class="chart-card">
+              <%= @message %>
+            </div>
+          </div>
+          <%# <div class="transactions-section">
+
     <h4>Recent Transactions</h4>
     <div class="recent-transactions">
       <% @expenses.each do |expense| %>
-        <div class="recent-transaction-card">
+            <%# <div class="recent-transaction-card">
           <div class="recent-transaction-info">
-            <h2><%= expense.description %></h2>
-            <p><%= expense.date.strftime("%a %e %b") %></p>
-          </div>
-          <h2>R<%= expense.amount %></h2>
-        </div>
+            <h2><%= expense.description</h2>
+            <p><%= expense.date.strftime("%a %e %b")</p>
+          <%# </div> %>
+            <%# <h2>R<%= expense.amount</h2> %>
+            <%# </div>
       <%end %>
-    </div>
-  </div>
-</div>
+
+            <%# </div> %>
+            <%# </div> %>
+          </div>
+        </div>
