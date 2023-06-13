@@ -1,6 +1,7 @@
 .new-expense-container {
   width: 90%;
-  margin: 40px auto;
+  margin: 0 auto;
+  margin-top: 30px;
 
   h1 {
     font-size: 24pt;
@@ -15,10 +16,15 @@
 .new-expense-header {
   display: flex;
   align-items: center;
-  margin-bottom: 40px;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  width: 90%;
+  margin: 0 auto;
   a {
     color: black;
     font-size: 24pt;
+  }
+
+  h1 {
+    margin-bottom: 0;
   }
 }

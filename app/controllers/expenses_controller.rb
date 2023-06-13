@@ -1,10 +1,6 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
 
-  # def index
-  #   @expenses = Expense.all
-  # end
-
   def index
     @expenses_search = nil
     @expenses_last_seven_days = Expense.where('date >= ?', 7.days.ago.to_date).order(date: :desc)
@@ -16,7 +12,7 @@ class ExpensesController < ApplicationController
     @total_expenses_current_month = current_user.expenses.where(created_at: beginning_of_month..end_of_month).sum(:amount)
     @potential_savings = @total_income - @total_expenses_current_month
     if params[:query].present?
-      @expenses_search = Expense.joins(budget: :category)
+      @expenses_search = Expense.joins(budget: :category_budget)
                                 .where('expenses.merchant ILIKE :query
                                         OR expenses.description ILIKE :query
                                         OR budgets.name ILIKE :query
@@ -31,6 +27,7 @@ class ExpensesController < ApplicationController
 
   def new
     @expense = Expense.new
+    @budget = Budget.new
   end
 
   def create
@@ -40,6 +37,12 @@ class ExpensesController < ApplicationController
     else
       render :new
     end
+    # @budget = Budget.new(budget_params)
+    # if @budget.save
+    #   redirect_to @budget, notice: 'Budget was successfully added.'
+    # else
+    #   render :new
+    # end
   end
 
   def edit
@@ -66,5 +69,9 @@ class ExpensesController < ApplicationController
 
   def expense_params
     params.require(:expense).permit(:amount, :description, :merchant, :date, :budget_id)
+  end
+
+  def budget_params
+    params.require(:budget).permit(:name, :amount, :category_budget_id)
   end
 end

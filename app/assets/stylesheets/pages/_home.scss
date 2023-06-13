@@ -105,6 +105,7 @@
   padding: 30px;
   margin-bottom: 20px;
   margin: 20px
+
 }
 
 .chart-cards-section {
@@ -114,6 +115,26 @@
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
 }
+
+
+
+
+
+// .chart-cards-section-month {
+//   display: flex;
+//   padding: 25px 0px;
+//   list-style: none;
+//   overflow-x: scroll;
+//   scroll-snap-type: x mandatory;
+// }
+// .chart-cards-section-year {
+//   display: flex;
+//   padding: 25px 0px;
+//   list-style: none;
+//   overflow-x: scroll;
+//   scroll-snap-type: x mandatory;
+// }
+
 
 .test-area {
   height: 800px;
