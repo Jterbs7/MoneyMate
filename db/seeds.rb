@@ -281,7 +281,7 @@ Budget.all.each do |budget|
   num_expenses = if single_monthly_expenses[budget.category.name]&.include?(budget.name)
                    1
                  else
-                   rand(1..10)
+                   rand(1..4)
                  end
 
   num_expenses.times do
