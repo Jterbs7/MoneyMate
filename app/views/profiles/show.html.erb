@@ -1,36 +1,39 @@
-<%= link_to :back do %>
- <i class="fa-solid fa-arrow-left"></i>
- <% end %>
 <div class="profile-show-container">
+  <%= link_to :back do %>
+    <i class="fa-solid fa-arrow-left"></i>
+  <% end %>
 
   <div class="main-profile-card">
 
-  <h1><%= @profile.first_name %> <%= @profile.second_name %>'s Profile</h1>
+    <h1><%= @profile.first_name %> <%= @profile.second_name %>'s Profile</h1>
 
-  <p>
-    <strong>First Name:</strong>
-    <%= @profile.first_name %>
-  </p>
+    <p>
+      <strong>First Name:</strong>
+      <%= @profile.first_name %>
+    </p>
 
-  <p>
-    <strong>Second Name:</strong>
-    <%= @profile.second_name %>
-  </p>
+    <p>
+      <strong>Second Name:</strong>
+      <%= @profile.second_name %>
+    </p>
 
-  <p>
-    <strong>Username:</strong>
-    <%= @profile.username %>
-  </p>
+    <p>
+      <strong>Username:</strong>
+      <%= @profile.username %>
+    </p>
 
-  <p>
-    <strong>Age:</strong>
-    <%= @profile.age %>
-  </p>
+    <p>
+      <strong>Age:</strong>
+      <%= @profile.age %>
+    </p>
 
-  <p>
-    <strong>Monthly Income:</strong>
-    <%= @profile.monthly_income %>
-  </p>
+    <p>
+      <strong>Monthly Income:</strong>
+      <%= @profile.monthly_income %>
+    </p>
+
   </div>
+  <button class="money-mate-button">
+    <%= link_to 'Edit Profile', edit_profile_path(@profile) %>
+  </button>
 </div>
-  <%= link_to 'Edit Profile', edit_profile_path(@profile), class: "btn" %>
