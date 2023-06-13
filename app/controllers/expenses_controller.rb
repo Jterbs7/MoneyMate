@@ -12,6 +12,7 @@ class ExpensesController < ApplicationController
     @total_income = current_user.profile.monthly_income
     beginning_of_month = Time.current.beginning_of_month
     end_of_month = beginning_of_month.end_of_month
+    # check if this is correct
     @total_expenses_current_month = current_user.expenses.where(created_at: beginning_of_month..end_of_month).sum(:amount)
     @potential_savings = @total_income - @total_expenses_current_month
     if params[:query].present?
