@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
     @expenses = Expense.all.sort_by(&:date).reverse
+    @month_chart = CategoryBudget.group(:name).sum(:amount)
 
     total_budget = Budget.sum(:amount)
     total_expense = Expense.where(date: Time.now.beginning_of_month..Time.now.end_of_month).sum(:amount)
