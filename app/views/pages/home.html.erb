@@ -53,4 +53,44 @@
       <%end %>
     </div>
   </div>
+  <div class="test-area">
+    <h1>GRAPHS TEST AREA</h1>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="7-days-tab" data-bs-toggle="tab" data-bs-target="#7-days" type="button" role="tab" aria-controls="7-days" aria-selected="true">7 days</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="month-tab" data-bs-toggle="tab" data-bs-target="#month" type="button" role="tab" aria-controls="month" aria-selected="false">Month</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="year-tab" data-bs-toggle="tab" data-bs-target="#year" type="button" role="tab" aria-controls="year" aria-selected="false">Year</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="7-days" role="tabpanel" aria-labelledby="7-days-tab">
+        <div class="chart-cards-section">
+          <div class="chart-card">
+            <%= pie_chart CategoryBudget.group(:name).sum(:amount),donut: true %>
+          </div>
+
+          <div class="chart-card">
+            <%= line_chart Expense.where(date: 6.months.ago..Time.now)
+                                  .group_by_month(:date)
+                                  .sum(:amount) %>
+          </div>
+
+          <div class="chart-card">
+            <%= column_chart [
+              {name: "Budget", data: Budget.group(:name).sum(:amount), stack: "Stack 1"},
+              {name: "Spent", data: Expense.joins(:budget).where(date: Time.now.beginning_of_month..Time.now.end_of_month).group('budgets.name').sum(:amount), stack: "Stack 2"}
+            ] %>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="month" role="tabpanel" aria-labelledby="month-tab">
+      </div>
+      <div class="tab-pane fade" id="year" role="tabpanel" aria-labelledby="year-tab">
+      </div>
+    </div>
+  </div>
 </div>
