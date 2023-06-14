@@ -343,23 +343,23 @@ Tip.create(advice_level: '0_30', content: "Off to a good start! You're within 30
 Tip.create(advice_level: '0_30', content: "Great! You're being careful with your spending 🎉")
 Tip.create(advice_level: '0_30', content: "You're doing well! Keep this up for the rest of the month 🤓")
 
-Tip.create(advice_level: '31_49', content: "You're still on track with your budget. Keep it up!")
-Tip.create(advice_level: '31_49', content: "Well done! You're managing your budget wisely.")
-Tip.create(advice_level: '31_49', content: "Good job! Continue monitoring your spending habits.")
+Tip.create(advice_level: '31_49', content: "You're still on track with your budget. Keep it up! ✅")
+Tip.create(advice_level: '31_49', content: "Well done! You're managing your budget wisely ✅")
+Tip.create(advice_level: '31_49', content: "Good job! Continue monitoring your spending habits ✅")
 
-Tip.create(advice_level: '50_69', content: "You're halfway through your budget. Keep an eye on your expenses.")
-Tip.create(advice_level: '50_69', content: "Remember to save where you can. You're halfway through your budget.")
-Tip.create(advice_level: '50_69', content: "You've used half of your budget. Continue being mindful of your expenses.")
+Tip.create(advice_level: '50_69', content: "You're halfway through your budget. Keep an eye on your expenses 👋🏽")
+Tip.create(advice_level: '50_69', content: "Remember to save where you can. You're halfway through your budget 👋🏽")
+Tip.create(advice_level: '50_69', content: "You've used half of your budget. Continue being mindful of your expenses 👋🏽")
 
-Tip.create(advice_level: '70_89', content: "Watch out, you're approaching 90% of your budget. Consider cutting back on non-essential expenses.")
-Tip.create(advice_level: '70_89', content: "You're nearing your budget limit. It might be a good time to reassess your spending.")
-Tip.create(advice_level: '70_89', content: "Keep an eye on your budget. You're approaching 90% of your limit.")
+Tip.create(advice_level: '70_89', content: "Watch out, you're approaching 90% of your budget. Consider cutting back on non-essential expenses 🙃")
+Tip.create(advice_level: '70_89', content: "You're nearing your budget limit. It might be a good time to reassess your spending 🙃")
+Tip.create(advice_level: '70_89', content: "Keep an eye on your budget. You're approaching 90% of your limit 🙃")
 
-Tip.create(advice_level: '90_100', content: "You're really close to your set budget for the month. Try to limit your spending where you can.")
-Tip.create(advice_level: '90_100', content: "You're nearing your budget limit. Prioritize necessary expenses.")
-Tip.create(advice_level: '90_100', content: "Be cautious! You're close to reaching your budget for the month.")
+Tip.create(advice_level: '90_100', content: "You're really close to your set budget for the month. Try to limit your spending where you can 😚")
+Tip.create(advice_level: '90_100', content: "You're nearing your budget limit. Prioritize necessary expenses 😚")
+Tip.create(advice_level: '90_100', content: "Be cautious! You're close to reaching your budget for the month 😚")
 
-Tip.create(advice_level: 'over_100', content: "You've exceeded your budget. It's time to evaluate your spending habits.")
-Tip.create(advice_level: 'over_100', content: "Your expenses are over the budget. Let's reassess where we can cut down on some spending.")
-Tip.create(advice_level: 'over_100', content: "You're now over your set budget for the month. Let's plan for a better financial month next.")
+Tip.create(advice_level: 'over_100', content: "You've exceeded your budget. It's time to evaluate your spending habits 😓")
+Tip.create(advice_level: 'over_100', content: "Your expenses are over the budget. Let's reassess where we can cut down on some spending 😓")
+Tip.create(advice_level: 'over_100', content: "You're now over your set budget for the month. Let's plan for a better financial month next 😓")
 puts "#{Tip.count} tips created"
