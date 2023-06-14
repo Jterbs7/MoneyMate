@@ -52,7 +52,8 @@ travel_category = CategoryBudget.create!(
   name: "Travel",
   amount: 4000,
   month: "January",
-  user_id: main_user.id
+  user_id: main_user.id,
+  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686746603/icons8-utilities-64_ibnoug.png"
 )
 
 travel_budget_names = ['Uber', 'Train', 'Bus', 'Fuel']
@@ -69,7 +70,9 @@ accommodation_category = CategoryBudget.create!(
   name: "Accommodation",
   amount: 8000,
   month: "January",
-  user_id: main_user.id
+  user_id: main_user.id,
+  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686746603/icons8-utilities-64_ibnoug.png"
+
 )
 
 accommodation_budget_names = ['Rent', 'Home Insurance', 'Hotel']
@@ -86,7 +89,9 @@ bills_category = CategoryBudget.create!(
   name: "Utilities",
   amount: 1500,
   month: "January",
-  user_id: main_user.id
+  user_id: main_user.id,
+  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686746603/icons8-utilities-64_ibnoug.png"
+
 )
 
 bills_budget_names = ['Electricity', 'Gas', 'Phone', 'Water', 'Internet']
@@ -103,7 +108,9 @@ lifestyle_category = CategoryBudget.create!(
   name: "Lifestyle",
   amount: 3500,
   month: "January",
-  user_id: main_user.id
+  user_id: main_user.id,
+  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686746603/icons8-utilities-64_ibnoug.png"
+
 )
 
 lifestyle_budget_names = ['Eating Out', 'Movies', 'Rugby', 'Gigs', 'Gym']
@@ -120,7 +127,9 @@ groceries_category = CategoryBudget.create!(
   name: "Groceries",
   amount: 1000,
   month: "January",
-  user_id: main_user.id
+  user_id: main_user.id,
+  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686746603/icons8-utilities-64_ibnoug.png"
+
 )
 
 groceries_budget_names = ['Food', 'Cleaning Supplies', 'Pet Food', 'Toiletries']
@@ -137,7 +146,9 @@ subscriptions_category = CategoryBudget.create!(
   name: "Subscriptions",
   amount: 975,
   month: "January",
-  user_id: main_user.id
+  user_id: main_user.id,
+  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686746603/icons8-utilities-64_ibnoug.png"
+
 )
 
 subscriptions_budget_names = ['Streaming Services', 'Software Subscriptions', 'Gaming']
@@ -154,7 +165,9 @@ shopping_category = CategoryBudget.create!(
   name: "Personal Shopping",
   amount: 850,
   month: "January",
-  user_id: main_user.id
+  user_id: main_user.id,
+  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686746603/icons8-utilities-64_ibnoug.png"
+
 )
 
 shopping_budget_names = ['Clothing', 'Beauty Products', 'Treats']
@@ -171,7 +184,9 @@ savings_category = CategoryBudget.create!(
   name: "Savings",
   amount: 4000,
   month: "January",
-  user_id: main_user.id
+  user_id: main_user.id,
+  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686746603/icons8-utilities-64_ibnoug.png"
+
 )
 
 savings_budget_names = ['Holiday', 'New car', 'Macbook Pro']
@@ -188,7 +203,9 @@ education_category = CategoryBudget.create!(
   name: "Education",
   amount: 700,
   month: "January",
-  user_id: main_user.id
+  user_id: main_user.id,
+  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686746603/icons8-utilities-64_ibnoug.png"
+
 )
 
 education_budget_names = ['Uni Fees', 'Le Wagon', 'Books']

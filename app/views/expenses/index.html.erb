@@ -56,6 +56,7 @@
         <% @expenses_last_seven_days.each do |expense| %>
           <div class="index-recent-transaction-card">
             <div class="index-recent-transaction-info">
+                <img src= <%= expense.budget.category_budget.icon %> alt ="icon" width="25" >
               <h2><%= expense.description %></h2>
               <p><%= expense.date.strftime("%a %e %b") %></p>
             </div>
