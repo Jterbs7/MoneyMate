@@ -53,7 +53,7 @@ travel_category = CategoryBudget.create!(
   amount: 4000,
   month: "January",
   user_id: main_user.id,
-  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686746603/icons8-utilities-64_ibnoug.png"
+  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686757273/icons8-car-48_2_ofnsus.png"
 )
 
 travel_budget_names = ['Uber', 'Train', 'Bus', 'Fuel']
@@ -71,7 +71,7 @@ accommodation_category = CategoryBudget.create!(
   amount: 8000,
   month: "January",
   user_id: main_user.id,
-  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686746603/icons8-utilities-64_ibnoug.png"
+  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686757394/icons8-house-48_pckg8o.png"
 
 )
 
@@ -90,7 +90,7 @@ bills_category = CategoryBudget.create!(
   amount: 1500,
   month: "January",
   user_id: main_user.id,
-  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686746603/icons8-utilities-64_ibnoug.png"
+  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686757475/icons8-tools-48_dvoiii.png"
 
 )
 
@@ -109,7 +109,7 @@ lifestyle_category = CategoryBudget.create!(
   amount: 3500,
   month: "January",
   user_id: main_user.id,
-  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686746603/icons8-utilities-64_ibnoug.png"
+  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686758382/icons8-food-and-wine-48_vd1mlo.png"
 
 )
 
@@ -128,7 +128,7 @@ groceries_category = CategoryBudget.create!(
   amount: 1000,
   month: "January",
   user_id: main_user.id,
-  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686746603/icons8-utilities-64_ibnoug.png"
+  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686757698/icons8-vegetarian-food-48_mehv07.png"
 
 )
 
@@ -147,7 +147,7 @@ subscriptions_category = CategoryBudget.create!(
   amount: 975,
   month: "January",
   user_id: main_user.id,
-  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686746603/icons8-utilities-64_ibnoug.png"
+  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686757868/icons8-pay-48_dfj2xk.png"
 
 )
 
@@ -166,7 +166,7 @@ shopping_category = CategoryBudget.create!(
   amount: 850,
   month: "January",
   user_id: main_user.id,
-  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686746603/icons8-utilities-64_ibnoug.png"
+  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686757945/icons8-shopping-bag-48_y1hfgx.png"
 
 )
 
@@ -185,7 +185,7 @@ savings_category = CategoryBudget.create!(
   amount: 4000,
   month: "January",
   user_id: main_user.id,
-  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686746603/icons8-utilities-64_ibnoug.png"
+  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686758017/icons8-money-box-48_y15jmq.png"
 
 )
 
@@ -204,7 +204,7 @@ education_category = CategoryBudget.create!(
   amount: 700,
   month: "January",
   user_id: main_user.id,
-  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686746603/icons8-utilities-64_ibnoug.png"
+  icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686758087/icons8-graduation-cap-48_tvyvaq.png"
 
 )
 
