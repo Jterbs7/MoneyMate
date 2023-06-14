@@ -4,8 +4,7 @@
     <div class="greeting">
       <% current_hour = Time.now.hour %>
       <% if current_hour < 12 %>
-        <h2>Good Morning
-          <h2>
+        <h2 class = "animate__animated animate__bounce"> Good Morning </h2>
           <% elsif  current_hour < 18 %>
             <h2>Good Afternoon</h2>
           <% else %>
@@ -39,7 +38,7 @@
               </div>
             </div>
             <div class="chart-card">
-              <%= @message %>
+            <h3 class = "animate__animated animate__bounce"> <%= @message %> </h3>
             </div>
           </div>
           <%# <div class="transactions-section">

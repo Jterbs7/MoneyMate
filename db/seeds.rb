@@ -339,9 +339,9 @@ puts "Done"
 
 puts "Creating Tips"
 
-Tip.create(advice_level: '0_30', content: "Off to a good start! You're within 30% of your budget.")
-Tip.create(advice_level: '0_30', content: "Great! You're being careful with your spending.")
-Tip.create(advice_level: '0_30', content: "You're doing well! Keep this up for the rest of the month.")
+Tip.create(advice_level: '0_30', content: "Off to a good start! You're within 30% of your budget 💪🏽")
+Tip.create(advice_level: '0_30', content: "Great! You're being careful with your spending 🎉")
+Tip.create(advice_level: '0_30', content: "You're doing well! Keep this up for the rest of the month 🤓")
 
 Tip.create(advice_level: '31_49', content: "You're still on track with your budget. Keep it up!")
 Tip.create(advice_level: '31_49', content: "Well done! You're managing your budget wisely.")
