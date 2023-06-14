@@ -2,7 +2,7 @@
   <%= pie_chart CategoryBudget.group(:name).sum(:amount),donut: true %>
 </div>
 <div class="chart-card">
-  <%= line_chart Expense.where(date: 7.days.ago..Time.now)
+  <%= line_chart Expense.where(date: 365.days.ago..Time.now)
                                   .group_by_day(:date)
                                   .sum(:amount) %>
 </div>
