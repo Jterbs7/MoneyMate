@@ -1,4 +1,7 @@
 <div class="chart-card">
+  <%= pie_chart days_chart_data, donut: true %>
+</div>
+<div class="chart-card">
   <%= pie_chart CategoryBudget.group(:name).sum(:amount),donut: true %>
 </div>
 <div class="chart-card">

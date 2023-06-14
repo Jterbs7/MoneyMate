@@ -28,13 +28,13 @@
             </div>
             <div class="d-flex">
               <div class="chart-cards-section" data-toggle-target="day">
-                <%= render "7_days"  %>
+                <%= render "7_days", days_chart_data: @days_chart_data  %>
               </div>
               <div class="chart-cards-section" data-toggle-target="month" >
-                <%= render "month", month_chart: @month_chart %>
+                <%= render "month", month_chart_data: @month_chart_data %>
               </div>
               <div class="chart-cards-section" data-toggle-target="year">
-                <%= render "year" %>
+                <%= render "year", year_chart_data: @year_chart_data %>
               </div>
             </div>
             <div class="chart-card">
