@@ -7,6 +7,7 @@
 <div class="budget-category-cards-container">
   <% @category_budgets.each do |category_budget| %>
     <div class="budget-category-card">
+    <img src= <%= category_budget.icon %> alt ="icon" >
       <%= link_to category_budget.name, category_budget %>
       <% expense_percentage = @category_budgets_expense_percentages[category_budget.id] %>
       <div class="w-75">
