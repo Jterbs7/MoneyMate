@@ -24,7 +24,7 @@ class PagesController < ApplicationController
 
     @month_chart_data = [
       ['ZAR ZAR Spent', month_spent],
-      ['ZAR Income', month_remaining]
+      ['ZAR Remaining', month_remaining]
     ]
 
     year_spent = Expense.where(date: Time.now.beginning_of_year..Time.now.end_of_year).sum(:amount)
