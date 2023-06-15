@@ -1,5 +1,5 @@
 <div class="navbar-money-mate">
-
+  <div class="navbar-icons-container">
     <% if current_page?(root_path) %>
 
       <div class="navbar-icon-box-active">
@@ -36,23 +36,11 @@
 
     <% end %>
 
-    <% if current_page?(new_expense_path) %>
-
-      <div class="navbar-icon-box-active">
-        <%= link_to new_expense_path, class: "navbar-brand" do %>
-          <i class="fa fa-plus fa-lg"></i>
-        <% end %>
-      </div>
-
-    <% else %>
-
-      <div class="navbar-icon-box">
-        <%= link_to new_expense_path, class: "navbar-brand" do %>
-          <i class="fa fa-plus fa-lg"></i>
-        <% end %>
-      </div>
-
-    <% end %>
+    <div class="navbar-plus-icon">
+      <%= link_to new_expense_path do %>
+        <i class="fa fa-plus fa-lg"></i>
+      <% end %>
+    </div>
 
     <% if current_page?(expenses_path) %>
 
@@ -89,5 +77,7 @@
       </div>
 
     <% end %>
+  </div>
+
 
 </div>

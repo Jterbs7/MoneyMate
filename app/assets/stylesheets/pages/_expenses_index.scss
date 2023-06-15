@@ -1,6 +1,7 @@
 .index-recent-transaction-info {
   // border: 1px solid red;
   width: 60%;
+  margin-left: 16px;
 
   p, h2 {
     margin: 0px;
@@ -38,16 +39,22 @@
   display:flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid rgb(159, 159, 159);
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 16px 20px;
+  border-radius: 21px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   h2 {
-    margin-bottom: 10px;
-    font-size: 20px;
+    margin-bottom: 5px;
+    font-size: 17px;
     font-weight: 500;
     font-family: 'Rubik', sans-serif;
     font-weight:bolder;
   }
+}
+.index-recent-transaction-icon{
+   border:1.5px solid black;
+   border-radius: 50%;
+   padding: 8px;
+   margin-left: -12px;
 }
 
 .index-transactions-section {
@@ -95,11 +102,8 @@
   border-bottom-right-radius: 20px;
   padding-top: 50px;
   padding-bottom: 20px;
+}
 
-  h1 {
-    font-size: 24pt;
-  }
-
-}.row {
+.row {
   --bs-gutter-x: 0;
 }
