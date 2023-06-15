@@ -1,12 +1,12 @@
-<div class="profile-show-container">
+<div class="index-yellow-header">
+  <h1 class="mb-3 text-center">Profile</h1>
   <%= link_to :back do %>
     <i class="fa-solid fa-arrow-left"></i>
   <% end %>
+</div>
+<div class="profile-show-container">
 
   <div class="main-profile-card">
-
-    <h1><%= @profile.first_name %> <%= @profile.second_name %>'s Profile</h1>
-
     <p>
       <strong>First Name:</strong>
       <%= @profile.first_name %>
@@ -21,38 +21,37 @@
       <strong>Username:</strong>
       <%= @profile.username %>
     </p>
-
-    <p>
-      <strong>Age:</strong>
-      <%= @profile.age %>
-    </p>
-
     <p>
       <strong>Monthly Income:</strong>
       <%= @profile.monthly_income %>
     </p>
-
   </div>
+
   <button class="money-mate-button">
     <%= link_to 'Edit Profile', edit_profile_path(@profile) %>
   </button>
-  <%# <div class="badge-card-container">
-  <div class="badge-card">
-    <% if @profile.badges.empty? %>
-      <%# No badges awarded yet
-    <% else %>
-      <%# <%= @profile.badges.first.name %>
-    <%# <% end %>
-  <%# </div> %>
-  <div class="badge-card-container">
-  <div class="badge-card">
-    <% if @profile.badges.empty? %>
-      No badges awarded yet
-    <% else %>
-      <%= image_tag @profile.badges.first.image, alt: @profile.badges.first.name, class: 'badge-image' if @profile.badges.first.image.present? %>
-      <%= @profile.badges.first.message %>
-    <% end %>
+<p class="mt-4">BADGES</p>
+<div class="expense-index-container">
+  <div class="index-transactions-section">
+    <div class="index-recent-transaction-card">
+      <% if @current_month_badge.nil? %>
+        No badges awarded yet
+      <% else %>
+        <%= image_tag @current_month_badge.image, alt: @current_month_badge.name, class: 'badge-image' if @current_month_badge.image.present? %>
+        <%= @current_month_badge.message %>
+      <% end %>
+    </div>
+    <div class="past-badges" style="overflow: auto; height: 250px;">
+      <% @profile_badges.each do |pb| %>
+        <div class="index-recent-transaction-card mb-3">
+          <%# <div class="historical-badge-image"> %>
+            <%= image_tag pb.badge.image, alt: pb.badge.name, width:"35" %>
+          <%# </div> %>
+          <div class="index-recent-transaction-info">
+            <h2><%= pb.month %></h2>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
-</div>
 </div>
