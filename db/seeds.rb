@@ -75,7 +75,7 @@ end
 
 bills_category = CategoryBudget.create!(
   name: "Utilities",
-  amount: 1500,
+  amount: 2500,
   month: "January",
   user_id: main_user.id,
   icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686757475/icons8-tools-48_dvoiii.png"
@@ -94,7 +94,7 @@ end
 
 lifestyle_category = CategoryBudget.create!(
   name: "Lifestyle",
-  amount: 3500,
+  amount: 5000,
   month: "January",
   user_id: main_user.id,
   icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686758382/icons8-food-and-wine-48_vd1mlo.png"
@@ -113,7 +113,7 @@ end
 
 groceries_category = CategoryBudget.create!(
   name: "Groceries",
-  amount: 1000,
+  amount: 3000,
   month: "January",
   user_id: main_user.id,
   icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686757698/icons8-vegetarian-food-48_mehv07.png"
