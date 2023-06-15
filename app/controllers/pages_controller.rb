@@ -11,28 +11,28 @@ class PagesController < ApplicationController
 
 
 
-    days_total_expense = Expense.where(date: Time.now.beginning_of_week..Time.now.end_of_week).sum(:amount)
-    days_income = @monthly_income / 4
+    days_spent = Expense.where(date: Time.now.beginning_of_week..Time.now.end_of_week).sum(:amount)
+    days_remaining = (@monthly_income / 4) - days_spent
 
     @days_chart_data = [
-      ['Expenses', days_total_expense],
-      ['Income', days_income]
+      ['ZAR Spent', days_spent],
+      ['ZAR Remaining', days_remaining]
     ]
 
-    month_income = @monthly_income
-    month_total_expense = Expense.where(date: Time.now.beginning_of_month..Time.now.end_of_month).sum(:amount)
+    month_spent = Expense.where(date: Time.now.beginning_of_month..Time.now.end_of_month).sum(:amount)
+    month_remaining = @monthly_income - month_spent
 
     @month_chart_data = [
-      ['Expenses', month_total_expense],
-      ['Income', month_income]
+      ['ZAR ZAR Spent', month_spent],
+      ['ZAR Income', month_remaining]
     ]
 
-    year_income = @monthly_income * 12
-    year_total_expenses = Expense.where(date: Time.now.beginning_of_year..Time.now.end_of_year).sum(:amount)
+    year_spent = Expense.where(date: Time.now.beginning_of_year..Time.now.end_of_year).sum(:amount)
+    year_remaining = (@monthly_income * 12) - year_spent
 
     @year_chart_data = [
-      ['Expenses', year_total_expenses],
-      ['Income', year_income]
+      ['ZAR Spent', year_spent],
+      ['ZAR Remaining', year_remaining]
     ]
 
     if @proportion > 1
