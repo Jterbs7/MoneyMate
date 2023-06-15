@@ -1,10 +1,33 @@
 // Specific CSS for your home-page
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rubik:ital,wght@0,300;1,300&display=swap');
 .top-message-section {
-  overflow: hidden;
-  height: 120px;
+  height: 8rem;
   display: flex;
+  justify-content: center;
   align-items: center;
+  background-color: #FFD84B;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.container-home {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.home-avatar-greeting {
+  display: flex;
+  width: 80%;
+  margin-top: 2rem;
+}
+
+.home-greeting {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  h1 {
+    margin-bottom: 0;
+  }
 }
 
 .top-message-section img {
@@ -12,6 +35,8 @@
   width: 60px;
   object-fit: cover;
   border-radius:50%;
+  margin-right: 10px;
+  margin-left: 10px
 }
 
 .top-message-section h2 {
@@ -95,6 +120,21 @@
     color: grey;
   }
 }
+
+.chart-cards-section {
+  display: flex;
+  // border: 1px solid red;
+  margin-top: 1.5rem;
+  list-style: none;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  gap: 2rem;
+}
+
+.chart-cards-section::-webkit-scrollbar {
+  display: none;
+}
+
 .chart-card {
   display: flex;
   align-items: center;
@@ -102,21 +142,14 @@
   background-color: #FFF8DE;
   border-radius: 15px;
   height: auto;
-  padding: 30px;
-  margin-bottom: 20px;
-  margin: 20px;
+  width: 100%;
+  padding: 1rem 2rem;
+  box-shadow: inset 1px 2px 8px 0px rgba(9,9,9,0.75)
 }
 
-.chart-cards-section {
-  display: flex;
-  padding: 25px 0px;
-  list-style: none;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-}
 
 .container {
-  background-color:#FFD84B;
+  // background-color:#FFD84B;
   // background: linear-gradient(white,#FFD84B);
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -130,36 +163,50 @@
   border-radius: 15px;
   height: auto;
   padding: 30px;
-  margin:20px;
+  box-shadow: 1px 2px 8px 0px rgba(9,9,9,0.75);
+  margin-top: 1.5rem;
 }
 
-.day-button {
-  margin-left: 25px;
-  margin-top: 1rem;
+.toggle-buttons {
+  display: flex;
+  // border: 1px solid red;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.toggle-button {
+  background-color: #ffffff;
+  border: 2px solid #FFD84B;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  border-radius: 10px;}
+
+.toggle-button-active {
   background-color: #FFD84B;
-  padding: 20px;
-  border-radius: 35%
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
+  border-radius: 10px;
 }
 
-.month-button {
-  margin-top: 1rem;
-  background-color: #FFD84B;
-  padding: 20px;
-  border-radius: 35%
-}
+// .month-button {
+//   margin-top: 1rem;
+//   background-color: #FFD84B;
+//   padding: 20px;
+//   border-radius: 35%;
+//   opacity: 0.8
+// }
 
-.year-button {
-  margin-right: 25px;
-  margin-top: 1rem;
-  background-color: #FFD84B;
-  padding: 20px;
-  border-radius: 35%
-}
-
-.container-home {
-  background-color:#FFD84B;
-  // background: linear-gradient(white,#FFD84B);
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-}
+// .year-button {
+//   margin-right: 25px;
+//   margin-top: 1rem;
+//   background-color: #FFD84B;
+//   padding: 20px;
+//   border-radius: 35%;
+//   opacity: 0.8
+// }
