@@ -4,6 +4,8 @@ class ProfilesController < ApplicationController
   before_action :award_badge
 
   def show
+    @current_month_badge = current_user.profile.profile_badges.where(month: Time.now.month).first.badge
+    @profile_badges = current_user.profile.profile_badges.where(month: 1..5)
   end
 
   def new
