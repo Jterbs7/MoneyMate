@@ -1,7 +1,7 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
   before_action :award_badge
-  
+
   def index
     @expenses_search = nil
     @expenses_last_seven_days = Expense.where('date >= ?', 7.days.ago.to_date).order(date: :desc)
@@ -10,7 +10,7 @@ class ExpensesController < ApplicationController
     beginning_of_month = Time.current.beginning_of_month
     end_of_month = beginning_of_month.end_of_month
     # check if this is correct
-    @total_expenses_current_month = current_user.expenses.where(created_at: beginning_of_month..end_of_month).sum(:amount)
+    @total_expenses_current_month = current_user.expenses.where(date: Time.now.beginning_of_month..Time.now.end_of_month).sum(:amount)
     @potential_savings = (@total_income - @total_expenses_current_month).floor
     if params[:query].present?
       @expenses_search = Expense.joins(budget: :category_budget)
