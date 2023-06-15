@@ -2,12 +2,26 @@
 <div class="budget-show-container">
   <h1 class="text-center"><%= @budget.category_budget.name %>: <%= @budget.name %></h1>
 
+  <div class="show-recent-transactions">
+    <% @budget_expenses.each do |expense| %>
+     <%= link_to expense_path(expense) do %>
+     <div class="show-recent-transaction-card">
+      <div class="index-recent-transaction-icon">
+          <img src= <%= expense.budget.category_budget.icon %>  alt ="icon" width="40" >
+      </div>
+      <div class="show-recent-transaction-info">
+        <h2><%= expense.description %></h2>
+        <p><%= expense.date.strftime( "%A %e %b %Y") %></p>
+       <% end %>
+      </div>
+  <div class="expense-amount-and-link">
+    <h2 class="item">R <%= expense.amount %></h2>
+   </div>
+  </div>
+    <% end %>
+  </div>
 
-  <% @budget_expenses.each do |expense| %>
-    <p><%= expense.description %> - <%= expense.amount %> - <%= expense.date.strftime( "%A %e %b %Y") %></p>
-  <% end %>
-
-
-  <%= link_to 'Edit', edit_budget_path(@budget) %> |
-  <%= link_to 'Delete', budget_path(@budget), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Edit', edit_budget_path(@budget) %> |
+    <%= link_to 'Delete', budget_path(@budget), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
 </div>
