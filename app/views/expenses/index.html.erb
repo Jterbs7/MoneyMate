@@ -54,18 +54,19 @@
     <div class="index-transactions-section">
       <div class="index-recent-transactions">
         <% @expenses_last_seven_days.each do |expense| %>
+            <%= link_to expense_path(expense) do %>
           <div class="index-recent-transaction-card">
+            <div class="index-recent-transaction-icon">
+                <img src= <%= expense.budget.category_budget.icon %>  alt ="icon" width="40" >
+              </div>
             <div class="index-recent-transaction-info">
-                <img src= <%= expense.budget.category_budget.icon %> alt ="icon" width="25" >
-              <h2><%= expense.description %></h2>
+                <h2><%= expense.description %></h2>
               <p><%= expense.date.strftime("%a %e %b") %></p>
+                <% end %>
             </div>
             <div class="expense-amount-and-link">
               <h2 class="item">R <%= expense.amount %></h2>
               <div class="item">
-                <%= link_to expense_path(expense) do %>
-                  <i class="fa-solid fa-circle-info"></i>
-                <% end %>
               </div>
             </div>
           </div>
