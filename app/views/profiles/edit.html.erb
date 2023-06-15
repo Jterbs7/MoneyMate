@@ -1,4 +1,7 @@
-<h2>Edit Profile</h2>
+<div class="categories-header-container">
+   <h2>Edit Profile</h2>
+</div>
+<div class="budget-category-cards-container">
 
 <%= simple_form_for @profile do |f| %>
   <div class="form-inputs">
@@ -9,7 +12,8 @@
     <%= f.input :monthly_income %>
   </div>
 
-  <div class="form-actions">
+  <div class="money-mate-button-profile">
     <%= f.button :submit, "Update Profile" %>
   </div>
 <% end %>
+</div>
