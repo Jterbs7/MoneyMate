@@ -4,18 +4,21 @@
       <%= link_to :back do %>
         <i class="fa-solid fa-arrow-left mr-5"></i>
       <% end %>
-      <h1><%= @expense.description %></h1>
+      <h1><%= @expense.budget.category_budget.name %></h1>
     </div>
   </div>
   <div class="details">
-    <div class="amount">
-      <h2> Amount: R <%= @expense.amount %></h2>
-    </div>
+
+     <img src= <%= @expense.budget.category_budget.icon %> class="expense-show-icon" alt ="icon" width="40" >
+
     <div class="merchant">
-      <h2> Merchant: <%= @expense.merchant %></h2>
+      <h2> <%= @expense.merchant %></h2>
+    </div>
+    <div class="amount">
+      <h2> R <%= @expense.amount %></h2>
     </div>
     <div class="date">
-      <h2> Date: <%= @expense.date.strftime("%A, %b %d") %></h2>
+      <p> <%= @expense.date.strftime("%A, %b %d") %></p>
     </div>
   </div>
 </div>
