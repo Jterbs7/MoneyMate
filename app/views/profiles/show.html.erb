@@ -35,8 +35,9 @@
     <%= link_to 'Edit Profile', edit_profile_path(@profile) %>
   </button>
 
-  <div class="badge-card-container">
-    <div class="badge-card">
+<div class="expense-index-container">
+  <div class="index-transactions-section">
+    <div class="index-recent-transaction-card">
       <% if @current_month_badge.nil? %>
         No badges awarded yet
       <% else %>
@@ -44,10 +45,16 @@
         <%= @current_month_badge.message %>
       <% end %>
     </div>
-
-    <div class="badge-card">
+    <div class="past-badges">
       <% @profile_badges.each do |pb| %>
-        <%= image_tag pb.badge.image, alt: pb.badge.name, class: 'badge-image' if pb.badge.image.present? %>
+        <div class="index-recent-transaction-card mb-3">
+          <%# <div class="historical-badge-image"> %>
+            <%= image_tag pb.badge.image, alt: pb.badge.name, width:"35" %>
+          <%# </div> %>
+          <div class="index-recent-transaction-info">
+            <h2><%= pb.month %></h2>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

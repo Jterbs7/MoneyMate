@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
 
   def show
     @current_month_badge = current_user.profile.profile_badges.where(month: Time.now.month).first.badge
-    @profile_badges = current_user.profile.profile_badges.where(month: 1..5)
+    @profile_badges = current_user.profile.profile_badges
   end
 
   def new

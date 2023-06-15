@@ -1,22 +1,60 @@
 .badge-card-container {
-  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 80%;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
+  overflow-y: auto;
+  height: auto;
+  margin-top: 2rem;
+  padding: 0 0.5rem;
 }
 
 .badge-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: white;
   border-radius: 15px;
-  width: 90%;
+  padding: 20px;
+  overflow: hidden;
   margin-bottom: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.current-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
 }
 
 .badge-image {
-  height: 100px;
+  max-width: 80%;
+  height: auto;
   object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.historical-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+.historical-badge-image {
+  max-width: 60%;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 10px;
+  border: 5px solid red;
+}
+
+.past-badges {
+  height: 150px;
+  overflow: auto
 }
