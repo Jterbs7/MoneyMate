@@ -1,12 +1,12 @@
 class CategoryBudgetsController < ApplicationController
-
+  before_action :award_badge
 
   def index
     # Get all category budgets for the currently logged in user and include associated budgets in the same query (prevents N+1 queries)
     @category_budgets = current_user.category_budgets.includes(:budgets)
     @category_budgets_expense_percentages = @category_budgets.map do |category_budget|
       budget_expenses = category_budget.budgets.map do |budget|
-        budget.expenses.sum(:amount)
+        budget.expenses.where('date >= ?', Time.current.beginning_of_month.to_date).sum(:amount)
       end.sum
 
       percentage = ((budget_expenses / category_budget.amount) * 100).round(2)

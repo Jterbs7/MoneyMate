@@ -8,20 +8,19 @@
 
 puts "Clearing the database..."
 
+ProfileBadge.destroy_all
+Badge.destroy_all
 Expense.destroy_all
 Budget.destroy_all
 CategoryBudget.destroy_all
 Profile.destroy_all
 User.destroy_all
 
-# create a few users
-
 puts "Creating some users"
 
 main_user = User.create!(
   email: "john@john.com",
   password: "password"
-  # monthly_income: "40_000" Assign to Profile
 )
 
 Profile.create!(
@@ -33,18 +32,7 @@ Profile.create!(
   user_id: main_user.id
 )
 
-5.times do
-  User.create!(
-    email: Faker::Internet.unique.email,
-    password: 'password',
-    # monthly_income: rand(20_000..80_000) Assign to Profile
-    )
-end
-
 puts "#{User.count} users created"
-
-# budget_categories = ['Eating Out', 'Taxis', 'Gym', 'Rent', 'Takeaways', 'Drinking']
-# budget_categories = ['Eating Out', 'Taxis', 'Gym', 'Rent', 'Takeaways', 'Drinking']
 
 puts "Creating some example budgets and budget categories"
 
@@ -129,7 +117,6 @@ groceries_category = CategoryBudget.create!(
   month: "January",
   user_id: main_user.id,
   icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686757698/icons8-vegetarian-food-48_mehv07.png"
-
 )
 
 groceries_budget_names = ['Food', 'Cleaning Supplies', 'Pet Food', 'Toiletries']
@@ -148,7 +135,6 @@ subscriptions_category = CategoryBudget.create!(
   month: "January",
   user_id: main_user.id,
   icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686757868/icons8-pay-48_dfj2xk.png"
-
 )
 
 subscriptions_budget_names = ['Streaming Services', 'Software Subscriptions', 'Gaming']
@@ -186,7 +172,6 @@ savings_category = CategoryBudget.create!(
   month: "January",
   user_id: main_user.id,
   icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686758017/icons8-money-box-48_y15jmq.png"
-
 )
 
 savings_budget_names = ['Holiday', 'New car', 'Macbook Pro']
@@ -205,7 +190,6 @@ education_category = CategoryBudget.create!(
   month: "January",
   user_id: main_user.id,
   icon: "https://res.cloudinary.com/dw1yozuyk/image/upload/v1686758087/icons8-graduation-cap-48_tvyvaq.png"
-
 )
 
 education_budget_names = ['Uni Fees', 'Le Wagon', 'Books']
@@ -220,13 +204,7 @@ end
 
 puts "#{CategoryBudget.count} budget categories created and #{Budget.count} budgets created"
 
-# CategoryBudget.all.each do |category_budget|
-#   Budget.create!(
-#     name: Faker::Commerce.department(max: 1),
-#     amount: (category_budget.amount / 2),
-#     category_budget_id: category_budget.id
-#   )
-# end
+
 puts "Creating some expenses"
 
 expenses_categories = {
@@ -314,43 +292,83 @@ Budget.all.each do |budget|
       amount: rand(1..600),
       description: description,
       merchant: merchant,
-      date: Faker::Date.between(from: 24.weeks.ago, to: Date.today),
+      date: Faker::Date.between(from: Time.current.beginning_of_month, to: Date.today),
+      budget: budget
+    )
+  end
+
+  num_expenses.times do
+    if expenses_categories[budget.category.name] && expenses_categories[budget.category.name][budget.name]
+      description = expenses_categories[budget.category.name][budget.name].sample
+      merchant = expenses_categories[budget.category.name][budget.name].sample
+    else
+      description = "Other"
+      merchant = "Other"
+    end
+
+    Expense.create!(
+      amount: rand(1..600),
+      description: description,
+      merchant: merchant,
+      date: Faker::Date.between(from: 1.month.ago.beginning_of_month, to: 1.month.ago.end_of_month),
+      budget: budget
+    )
+  end
+
+  num_expenses.times do
+    if expenses_categories[budget.category.name] && expenses_categories[budget.category.name][budget.name]
+      description = expenses_categories[budget.category.name][budget.name].sample
+      merchant = expenses_categories[budget.category.name][budget.name].sample
+    else
+      description = "Other"
+      merchant = "Other"
+    end
+
+    Expense.create!(
+      amount: rand(1..600),
+      description: description,
+      merchant: merchant,
+      date: Faker::Date.between(from: 2.month.ago.beginning_of_month, to: 2.month.ago.end_of_month),
+      budget: budget
+    )
+  end
+
+  num_expenses.times do
+    if expenses_categories[budget.category.name] && expenses_categories[budget.category.name][budget.name]
+      description = expenses_categories[budget.category.name][budget.name].sample
+      merchant = expenses_categories[budget.category.name][budget.name].sample
+    else
+      description = "Other"
+      merchant = "Other"
+    end
+
+    Expense.create!(
+      amount: rand(1..600),
+      description: description,
+      merchant: merchant,
+      date: Faker::Date.between(from: 3.month.ago.beginning_of_month, to: 3.month.ago.end_of_month),
+      budget: budget
+    )
+  end
+
+  num_expenses.times do
+    if expenses_categories[budget.category.name] && expenses_categories[budget.category.name][budget.name]
+      description = expenses_categories[budget.category.name][budget.name].sample
+      merchant = expenses_categories[budget.category.name][budget.name].sample
+    else
+      description = "Other"
+      merchant = "Other"
+    end
+
+    Expense.create!(
+      amount: rand(1..600),
+      description: description,
+      merchant: merchant,
+      date: Faker::Date.between(from: 4.month.ago.beginning_of_month, to: 4.month.ago.end_of_month),
       budget: budget
     )
   end
 end
-
-# --------------------
-# Budget.all.each do |budget|
-#   8.times do
-#     if expenses_categories[budget.category.name] && expenses_categories[budget.category.name][budget.name]
-#       description = expenses_categories[budget.category.name][budget.name].sample
-#       merchant = expenses_categories[budget.category.name][budget.name].sample
-#     else
-#       description = "Other"
-#       merchant = "Other"
-#     end
-
-#     Expense.create!(
-#       amount: rand(1..600),
-#       description: description,
-#       merchant: merchant,
-#       date: Faker::Date.between(from: 4.weeks.ago, to: Date.today),
-#       budget: budget
-#     )
-#   end
-# end
-# Budget.all.each do |budget|
-#   8.times do
-#     Expense.create!(
-#       amount: rand(1..600),
-#       description: Faker::Beer.name,
-#       merchant: Faker::Fantasy::Tolkien.character,
-#       date: Faker::Date.between(from: 4.weeks.ago, to: Date.today),
-#       budget: budget
-#     )
-#   end
-# end
 
 puts "Done"
 
@@ -380,3 +398,11 @@ Tip.create(advice_level: 'over_100', content: "You've exceeded your budget. It's
 Tip.create(advice_level: 'over_100', content: "Your expenses are over the budget. Let's reassess where we can cut down on some spending 😓")
 Tip.create(advice_level: 'over_100', content: "You're now over your set budget for the month. Let's plan for a better financial month next 😓")
 puts "#{Tip.count} tips created"
+
+puts "Creating badges"
+Badge.create(name: 'Gold', message: '🎉 Congratulations! You have managed your budget excellently this month. 🏆', image: 'https://res.cloudinary.com/dw1yozuyk/image/upload/v1686832545/gold_360_hy7gql.gif')
+Badge.create(name: 'Fail', message: '🚨 You have exceeded your budget this month. Try to save more next month. 💔', image: 'https://res.cloudinary.com/dw1yozuyk/image/upload/v1686832506/nobadge_kh6eje.gif')
+Badge.create(name: 'Bronze', message: '🥉 You did well, but you can do even better! Keep track of your expenses! 📈', image: 'https://res.cloudinary.com/dw1yozuyk/image/upload/v1686832610/bronze_360_hcdpoo.gif')
+Badge.create(name: 'Silver', message: '🥈 Great work! You managed your budget quite well this month. 👏', image: 'https://res.cloudinary.com/dw1yozuyk/image/upload/v1686832601/silver_360_j32exn.gif')
+
+puts "Created badges"

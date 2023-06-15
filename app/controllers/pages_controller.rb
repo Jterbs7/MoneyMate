@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :award_badge
   def home
     @expenses = Expense.all.sort_by(&:date).reverse
     @month_chart = CategoryBudget.group(:name).sum(:amount)
