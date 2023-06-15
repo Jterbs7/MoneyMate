@@ -22,3 +22,21 @@
 
     border-radius: 10px;
 }
+
+.expense-header {
+  display: flex;
+  // border: 1px solid red;
+  align-items: center;
+  width: 70%;
+  justify-content: space-evenly;
+
+  a {
+    font-size: 18pt;
+    margin-right: 1rem;
+  }
+
+  h1 {
+    margin-bottom: 0;
+    margin-right: 2rem;
+  }
+}
