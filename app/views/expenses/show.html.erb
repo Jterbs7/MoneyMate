@@ -1,10 +1,21 @@
 <div class="container-expense">
-<h1><%= @expense.description %></h1>
-<p>
-  Amount: <%= @expense.amount %><br>
-  Merchant: <%= @expense.merchant %><br>
-  Date: <%= @expense.date %><br>
-</p>
-<%= link_to 'Edit', edit_expense_path(@expense) %>
-<%= link_to 'Back', expenses_path %>
+  <div class="description">
+    <div class="name">
+      <h1><%= @expense.description %></h1>
+    </div>
+  </div>
+  <div class="details">
+    <div class="amount">
+      <h2> Amount: R <%= @expense.amount %></h2>
+    </div>
+    <div class="merchant">
+      <h2> Merchant: <%= @expense.merchant %></h2>
+    </div>
+    <div class="date">
+      <h2> Date: <%= @expense.date.strftime("%A, %b %d") %></h2>
+    </div>
+  </div>
+  <div class="back-button">
+    <%= link_to 'Back', expenses_path %>
+  </div>
 </div>
