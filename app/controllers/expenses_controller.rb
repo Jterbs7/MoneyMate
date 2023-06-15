@@ -1,6 +1,7 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
-
+  before_action :award_badge
+  
   def index
     @expenses_search = nil
     @expenses_last_seven_days = Expense.where('date >= ?', 7.days.ago.to_date).order(date: :desc)

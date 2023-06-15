@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_profile, only: [:show, :edit, :update]
+  before_action :award_badge
 
   def show
   end

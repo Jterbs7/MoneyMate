@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_14_102526) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_15_092202) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "badges", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "budgets", force: :cascade do |t|
     t.string "name"
@@ -43,6 +51,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_102526) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["budget_id"], name: "index_expenses_on_budget_id"
+  end
+
+  create_table "profile_badges", force: :cascade do |t|
+    t.string "month"
+    t.bigint "profile_id", null: false
+    t.bigint "badge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["badge_id"], name: "index_profile_badges_on_badge_id"
+    t.index ["profile_id"], name: "index_profile_badges_on_profile_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -79,5 +97,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_102526) do
   add_foreign_key "budgets", "category_budgets"
   add_foreign_key "category_budgets", "users"
   add_foreign_key "expenses", "budgets"
+  add_foreign_key "profile_badges", "badges"
+  add_foreign_key "profile_badges", "profiles"
   add_foreign_key "profiles", "users"
 end
