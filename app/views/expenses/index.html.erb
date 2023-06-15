@@ -2,10 +2,10 @@
   <h1 class="mb-3 text-center">Recent Expenses</h1>
   <div class="expense-index-totals-container">
     <div class="expense-index-total">
-      <p><strong>Total: </strong>R <%= @total_expenses_current_month %></p>
+      <p><strong>Total: </strong>R <%= format("%.2f", @total_expenses_current_month) %></p>
     </div>
     <div class="expense-index-total">
-      <p><strong>Savings: </strong>R <%= @potential_savings %></p>
+      <p><strong>Savings: </strong>R <%= format("%.2f", @potential_savings) %></p>
     </div>
   </div>
 </div>
@@ -63,7 +63,7 @@
                 <% end %>
             </div>
             <div class="expense-amount-and-link">
-              <h2 class="item">R <%= expense.amount %></h2>
+              <h2 class="item">R <%= format("%.2f", expense.amount) %></h2>
             </div>
           </div>
         <% end %>
