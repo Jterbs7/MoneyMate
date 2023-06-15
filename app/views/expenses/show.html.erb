@@ -1,6 +1,9 @@
 <div class="container-expense">
   <div class="description">
-    <div class="name">
+    <div class="expense-header">
+      <%= link_to :back do %>
+        <i class="fa-solid fa-arrow-left mr-5"></i>
+      <% end %>
       <h1><%= @expense.description %></h1>
     </div>
   </div>
@@ -14,8 +17,5 @@
     <div class="date">
       <h2> Date: <%= @expense.date.strftime("%A, %b %d") %></h2>
     </div>
-  </div>
-  <div class="back-button">
-    <%= link_to 'Back', expenses_path %>
   </div>
 </div>
