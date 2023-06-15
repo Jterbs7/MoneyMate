@@ -382,7 +382,7 @@ Tip.create(advice_level: '31_49', content: "You're still on track with your budg
 Tip.create(advice_level: '31_49', content: "Well done! You're managing your budget wisely ✅")
 Tip.create(advice_level: '31_49', content: "Good job! Continue monitoring your spending habits ✅")
 
-Tip.create(advice_level: '50_69', content: "You're halfway through your budget. Keep an eye on your expenses 👋🏽")
+Tip.create(advice_level: '50_69', content: "You're halfway through your budget. Keep an eye on your expenses 👀")
 Tip.create(advice_level: '50_69', content: "Remember to save where you can. You're halfway through your budget 👋🏽")
 Tip.create(advice_level: '50_69', content: "You've used half of your budget. Continue being mindful of your expenses 👋🏽")
 
