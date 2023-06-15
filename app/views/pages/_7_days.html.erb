@@ -1,5 +1,5 @@
 <div class="chart-card">
-  <%= pie_chart days_chart_data, donut: true %>
+  <%= pie_chart days_chart_data, colors: ["#F24C3D","#6ABBFF"], donut: true %>
 </div>
 <div class="chart-card">
   <%= pie_chart CategoryBudget.group(:name).sum(:amount),donut: true %>
@@ -7,11 +7,13 @@
 <div class="chart-card">
   <%= line_chart Expense.where(date: 7.days.ago..Time.now)
                                   .group_by_day(:date)
-                                  .sum(:amount) %>
+                                  .sum(:amount),
+                                   colors: ["#98A1FD"]
+                                   %>
 </div>
 <div class="chart-card">
   <%= column_chart [
-                      {name: "Budget", data: Budget.group(:name).sum(:amount), stack: "Stack 1"},
-                      {name: "Spent", data: Expense.joins(:budget).where(date: Time.now.beginning_of_month..Time.now.end_of_month).group('budgets.name').sum(:amount), stack: "Stack 2"}
+                      {name: "Budget", data: Budget.group(:name).sum(:amount), stack: "Stack 1", color: ["#6ABBFF"]},
+                      {name: "Spent", data: Expense.joins(:budget).where(date: Time.now.beginning_of_month..Time.now.end_of_month).group('budgets.name').sum(:amount), stack: "Stack 2", colors: ["#F24C3D"]}
                     ] %>
 </div>

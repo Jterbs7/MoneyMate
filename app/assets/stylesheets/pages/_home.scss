@@ -99,13 +99,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: #FFF8DE;
   border-radius: 15px;
   height: auto;
   padding: 30px;
   margin-bottom: 20px;
-  margin: 20px
-
+  margin: 20px;
 }
 
 .chart-cards-section {
@@ -116,27 +115,44 @@
   scroll-snap-type: x mandatory;
 }
 
+.container {
+  background-color:#FFD84B;
+  // background: linear-gradient(white,#FFD84B);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
 
+.chart-card-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #6ABBFF;
+  border-radius: 15px;
+  height: auto;
+  padding: 30px;
+  margin:20px;
+}
 
+.day-button {
+  margin-left: 25px;
+  margin-top: 1rem;
+  background-color: #FFD84B;
+  padding: 20px;
+  border-radius: 50%
 
+}
 
-// .chart-cards-section-month {
-//   display: flex;
-//   padding: 25px 0px;
-//   list-style: none;
-//   overflow-x: scroll;
-//   scroll-snap-type: x mandatory;
-// }
-// .chart-cards-section-year {
-//   display: flex;
-//   padding: 25px 0px;
-//   list-style: none;
-//   overflow-x: scroll;
-//   scroll-snap-type: x mandatory;
-// }
+.month-button {
+  margin-top: 1rem;
+  background-color: #FFD84B;
+  padding: 20px;
+  border-radius: 50%
+}
 
-
-.test-area {
-  height: 800px;
-  margin-top: 80px;
+.year-button {
+  margin-right: 25px;
+  margin-top: 1rem;
+  background-color: #FFD84B;
+  padding: 20px;
+  border-radius: 50%
 }
