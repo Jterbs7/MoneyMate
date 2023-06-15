@@ -138,7 +138,7 @@
   margin-top: 1rem;
   background-color: #FFD84B;
   padding: 20px;
-  border-radius: 50%
+  border-radius: 35%
 
 }
 
@@ -146,7 +146,7 @@
   margin-top: 1rem;
   background-color: #FFD84B;
   padding: 20px;
-  border-radius: 50%
+  border-radius: 35%
 }
 
 .year-button {
@@ -154,5 +154,12 @@
   margin-top: 1rem;
   background-color: #FFD84B;
   padding: 20px;
-  border-radius: 50%
+  border-radius: 35%
+}
+
+.container-home {
+  background-color:#FFD84B;
+  // background: linear-gradient(white,#FFD84B);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
