@@ -1,7 +1,13 @@
 <!-- app/views/budgets/show.html.erb -->
+<div class="index-yellow-header">
+<div class="new-expense-header">
+  <%= link_to :back do %>
+      <i class="fa-solid fa-arrow-left mr-5"></i>
+    <% end %>
+  <h1><%= @budget.category_budget.name %>: <%= @budget.name %></h1>
+</div>
+</div>
 <div class="budget-show-container">
-  <h1 class="text-center"><%= @budget.category_budget.name %>: <%= @budget.name %></h1>
-
   <div class="show-recent-transactions">
     <% @budget_expenses.each do |expense| %>
      <%= link_to expense_path(expense) do %>
@@ -21,7 +27,5 @@
     <% end %>
   </div>
 
-    <%= link_to 'Edit', edit_budget_path(@budget) %> |
-    <%= link_to 'Delete', budget_path(@budget), method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
 </div>
