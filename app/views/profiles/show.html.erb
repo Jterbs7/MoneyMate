@@ -1,10 +1,12 @@
-<div class="profile-show-container">
+<div class="index-yellow-header">
+  <h1 class="mb-3 text-center">Profile</h1>
   <%= link_to :back do %>
     <i class="fa-solid fa-arrow-left"></i>
   <% end %>
+</div>
+<div class="profile-show-container">
 
   <div class="main-profile-card">
-    <h1><%= @profile.first_name %> <%= @profile.second_name %>'s Profile</h1>
     <p>
       <strong>First Name:</strong>
       <%= @profile.first_name %>
@@ -19,12 +21,6 @@
       <strong>Username:</strong>
       <%= @profile.username %>
     </p>
-
-    <p>
-      <strong>Age:</strong>
-      <%= @profile.age %>
-    </p>
-
     <p>
       <strong>Monthly Income:</strong>
       <%= @profile.monthly_income %>
@@ -34,7 +30,7 @@
   <button class="money-mate-button">
     <%= link_to 'Edit Profile', edit_profile_path(@profile) %>
   </button>
-
+<p class="mt-4">BADGES</p>
 <div class="expense-index-container">
   <div class="index-transactions-section">
     <div class="index-recent-transaction-card">
@@ -45,7 +41,7 @@
         <%= @current_month_badge.message %>
       <% end %>
     </div>
-    <div class="past-badges">
+    <div class="past-badges" style="overflow: auto; height: 250px;">
       <% @profile_badges.each do |pb| %>
         <div class="index-recent-transaction-card mb-3">
           <%# <div class="historical-badge-image"> %>
