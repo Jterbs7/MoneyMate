@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rubik:ital,wght@0,300;1,300&display=swap');
 .top-message-section {
-  height: 8rem;
+  height: 7rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,6 +145,7 @@
 
 .chart-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #FFF8DE;
@@ -171,7 +172,7 @@
   background-color: #6ABBFF;
   border-radius: 15px;
   height: auto;
-  padding: 30px;
+  padding: 27px;
   box-shadow: 11px 11px 17px -14px rgba(124,123,123,1);
   p {
     margin-bottom: 0;
