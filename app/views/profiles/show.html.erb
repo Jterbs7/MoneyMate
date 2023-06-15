@@ -1,5 +1,5 @@
 <div class="index-yellow-header">
-  <h1 class="mb-3 text-center">Profile</h1>
+  <h1 class="mb-3 text-center">My Profile</h1>
   <%= link_to :back do %>
     <i class="fa-solid fa-arrow-left"></i>
   <% end %>
@@ -7,28 +7,20 @@
 <div class="profile-show-container">
 
   <div class="main-profile-card">
-    <p>
-      <strong>First Name:</strong>
-      <%= @profile.first_name %>
-    </p>
 
-    <p>
-      <strong>Second Name:</strong>
-      <%= @profile.second_name %>
-    </p>
+    <p>First Name:</p>
+    <h6><%= @profile.first_name %></h6>
+    <p>Second Name:</p>
+    <h6><%= @profile.second_name %></h6>
+    <p>Username:</p>
+    <h6><%= @profile.username %></h6>
+    <p>Monthly Income:</p>
+    <h6>R<%= @profile.monthly_income.floor %></h6>
 
-    <p>
-      <strong>Username:</strong>
-      <%= @profile.username %>
-    </p>
-    <p>
-      <strong>Monthly Income:</strong>
-      <%=  @profile.monthly_income %>
-    </p>
   </div>
 
   <button class="money-mate-button">
-    <%= link_to 'Edit Profile', edit_profile_path(@profile) %>
+    <%= link_to 'edit', edit_profile_path(@profile) %>
   </button>
 <p class="mt-4">BADGES</p>
 <div class="expense-index-container">
@@ -54,4 +46,5 @@
       <% end %>
     </div>
   </div>
+</div>
 </div>

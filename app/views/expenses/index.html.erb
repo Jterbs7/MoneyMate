@@ -35,7 +35,7 @@
               <p><%= expense.date.strftime("%a %e %b") %></p>
             </div>
             <div class="expense-amount-and-link">
-              <h2 class="item">R <%= expense.amount %></h2>
+              <h2 class="item">R <%= expense.amount.floor %></h2>
               <div class="item">
                 <%= link_to expense_path(expense) do %>
                   <i class="fa-solid fa-circle-info"></i>
@@ -63,7 +63,7 @@
                 <% end %>
             </div>
             <div class="expense-amount-and-link">
-              <h2 class="item">R <%= expense.amount %></h2>
+              <h2 class="item">R <%= expense.amount.floor %></h2>
             </div>
           </div>
         <% end %>
