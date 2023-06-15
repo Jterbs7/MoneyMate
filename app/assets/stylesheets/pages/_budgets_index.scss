@@ -99,3 +99,22 @@
     font-size: 24pt;
   }
 }
+
+.budgets-show-header-top {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: space-evenly;
+
+  a {
+    font-size: 18pt;
+  }
+}
+
+.budgets-show-header {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+}
