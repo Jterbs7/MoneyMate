@@ -4,14 +4,18 @@
     <div class="greeting">
       <% current_hour = Time.now.hour %>
       <% if current_hour < 12 %>
-        <h2 class = "animate__animated animate__bounce"> Good Morning </h2>
+        <h2 class = "animate__animated animate__fadeInDown"> Good Morning </h2>
           <% elsif  current_hour < 18 %>
             <h2>Good Afternoon</h2>
           <% else %>
-            <h2>Good Evening</h2>
+            <h2 class = "animate__animated animate__fadeInDown"> Good Evening</h2>
           <% end %>
-          <h1><%= current_user.profile.first_name %>
+          <h1 class = "animate__animated animate__fadeInDown"><%= current_user.profile.first_name %>
             <h1>
+            </div>
+          </div>
+            <div class="chart-card-message">
+            <h3 class = "animate__animated animate__bounce"> <%= @message %> </h3>
             </div>
           </div>
           <div data-controller="toggle">
@@ -37,10 +41,6 @@
                 <%= render "year", year_chart_data: @year_chart_data %>
               </div>
             </div>
-            <div class="chart-card">
-            <h3 class = "animate__animated animate__bounce"> <%= @message %> </h3>
-            </div>
-          </div>
           <%# <div class="transactions-section">
 
     <h4>Recent Transactions</h4>
