@@ -9,7 +9,7 @@
     <%= link_to category_budget do %>
       <div class="budget-category-card">
         <img src= <%= category_budget.icon %> alt ="icon" >
-        <p> <%= category_budget.name %> </p>
+        <p class="mb-2"> <%= category_budget.name %> </p>
         <% expense_percentage = @category_budgets_expense_percentages[category_budget.id] %>
         <div class="w-75">
           <div class="progress">

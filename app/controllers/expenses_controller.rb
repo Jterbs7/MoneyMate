@@ -10,7 +10,7 @@ class ExpensesController < ApplicationController
     beginning_of_month = Time.current.beginning_of_month
     end_of_month = beginning_of_month.end_of_month
     # check if this is correct
-    @total_expenses_current_month = current_user.expenses.where(date: Time.now.beginning_of_month..Time.now.end_of_month).sum(:amount)
+    @total_expenses_current_month = current_user.expenses.where(date: Time.now.beginning_of_month..Time.now.end_of_month).sum(:amount).floor
     @potential_savings = (@total_income - @total_expenses_current_month).floor
     if params[:query].present?
       @expenses_search = Expense.joins(budget: :category_budget)
