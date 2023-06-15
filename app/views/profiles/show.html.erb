@@ -36,4 +36,23 @@
   <button class="money-mate-button">
     <%= link_to 'Edit Profile', edit_profile_path(@profile) %>
   </button>
+  <%# <div class="badge-card-container">
+  <div class="badge-card">
+    <% if @profile.badges.empty? %>
+      <%# No badges awarded yet
+    <% else %>
+      <%# <%= @profile.badges.first.name %>
+    <%# <% end %>
+  <%# </div> %>
+  <div class="badge-card-container">
+  <div class="badge-card">
+    <% if @profile.badges.empty? %>
+      No badges awarded yet
+    <% else %>
+      <%= image_tag @profile.badges.first.image, alt: @profile.badges.first.name, class: 'badge-image' if @profile.badges.first.image.present? %>
+      <%= @profile.badges.first.message %>
+    <% end %>
+  </div>
+</div>
+</div>
 </div>

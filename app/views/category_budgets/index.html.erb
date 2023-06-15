@@ -1,24 +1,28 @@
 <!-- app/views/category_budgets/index.html.erb -->
 
 <div class="categories-header-container">
-  <h1>Categories</h1>
+  <h1>Budget Categories</h1>
 </div>
 
 <div class="budget-category-cards-container">
   <% @category_budgets.each do |category_budget| %>
-    <div class="budget-category-card">
-    <img src= <%= category_budget.icon %> alt ="icon" >
-      <%= link_to category_budget.name, category_budget %>
-      <% expense_percentage = @category_budgets_expense_percentages[category_budget.id] %>
-      <div class="w-75">
-        <div class="progress">
-          <% if expense_percentage > 100 %>
-            <div class="progress-bar bg-danger" role="progressbar" style="width: <%= [expense_percentage, 100].min %>%;" aria-valuenow="<%= [expense_percentage, 100].min %>" aria-valuemin="0" aria-valuemax="100"><%= expense_percentage %>%</div>
-          <% else %>
-            <div class="progress-bar" role="progressbar" style="width: <%= expense_percentage %>%;" aria-valuenow="<%= expense_percentage %>" aria-valuemin="0" aria-valuemax="100"><%= expense_percentage %>%</div>
-          <% end %>
+    <%= link_to category_budget do %>
+      <div class="budget-category-card">
+        <img src= <%= category_budget.icon %> alt ="icon" >
+        <p> <%= category_budget.name %> </p>
+        <% expense_percentage = @category_budgets_expense_percentages[category_budget.id] %>
+        <div class="w-75">
+          <div class="progress">
+            <% if expense_percentage > 100 %>
+              <div class="progress-bar bg-danger" role="progressbar" style="width: <%= [expense_percentage, 100].min %>%;" aria-valuenow="<%= [expense_percentage, 100].min %>" aria-valuemin="0" aria-valuemax="100"><%= expense_percentage %>%
+              </div>
+            <% else %>
+            <div class="progress-bar" role="progressbar" style="width: <%= expense_percentage %>%;" aria-valuenow="<%= expense_percentage %>" aria-valuemin="0" aria-valuemax="100"><%= expense_percentage %>%
+            </div>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>

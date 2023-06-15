@@ -1,5 +1,6 @@
 class BudgetsController < ApplicationController
-
+  before_action :award_badge
+  
   def index
     @budgets = current_user.budgets
   end

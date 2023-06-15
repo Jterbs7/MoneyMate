@@ -1,0 +1,22 @@
+.badge-card-container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.badge-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 15px;
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+.badge-image {
+  height: 100px;
+  object-fit: contain;
+}
