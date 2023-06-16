@@ -1,10 +1,10 @@
-<div class="index-yellow-header">
-  <div class="new-expense-header">
+<div class="profile-show-yellow-header">
+  <div class="profile-show-back">
     <%= link_to :back do %>
       <i class="fa-solid fa-arrow-left"></i>
     <% end %>
-    <h1>My Profile</h1>
   </div>
+    <h1>My Profile</h1>
 </div>
 <div class="profile-show-container">
 
@@ -12,7 +12,7 @@
 
     <p>First Name:</p>
     <h6><%= @profile.first_name %></h6>
-    <p>Second Name:</p>
+    <p>Last Name:</p>
     <h6><%= @profile.second_name %></h6>
     <p>Username:</p>
     <h6><%= @profile.username %></h6>
@@ -22,10 +22,10 @@
   </div>
 
   <button class="money-mate-button">
-    <%= link_to 'edit', edit_profile_path(@profile) %>
+    <%= link_to 'Edit Profile', edit_profile_path(@profile) %>
   </button>
 <p class="mt-4">BADGES</p>
-<div class="expense-index-container">
+<%# <div class="expense-index-container"> %>
   <div class="index-transactions-section">
     <div class="index-recent-transaction-card">
       <% if @current_month_badge.nil? %>
@@ -48,5 +48,5 @@
       <% end %>
     </div>
   </div>
-</div>
+<%# </div> %>
 </div>

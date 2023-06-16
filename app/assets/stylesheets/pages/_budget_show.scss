@@ -13,6 +13,7 @@
     font-size: larger;
     margin-left: 1rem;
     margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
   }
 }
 .show-recent-transactions{
@@ -35,6 +36,7 @@
   border-radius: 21px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   margin-bottom: 1rem;
+  background-color: white;
 
   h2 {
     margin-bottom: 5px;
@@ -62,5 +64,39 @@
     font-size: 16px;
     font-weight: 300;
     color: grey;
+  }
+}
+
+.budget-show-yellow-header {
+  background-color: #FFD84B;
+  display: flex;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  height: 7rem;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  box-shadow: 0px 9px 10px -4px rgba(0, 0, 0, 0.1);
+}
+
+.budget-show-back {
+  position: absolute;
+  top: 2.5rem;
+  left: 2rem;
+  a {
+    color: black;
+    font-size: 18pt;
+  }
+}
+
+.budget-show-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  margin: 0 auto;
+  width: 70%;
+  h1 {
+    margin-bottom: 0;
   }
 }

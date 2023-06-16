@@ -13,25 +13,42 @@
   display: flex;
 }
 
-.new-expense-header {
+.new-expense-yellow-header {
   display: flex;
+  background-color: #FFD84B;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  position: relative;
+  height: 7rem;
   align-items: center;
-  justify-content: space-evenly;
-  width: 90%;
-  margin: 0 auto;
+  justify-content: center;
+  h1 {
+    margin-bottom: 0;
+  }
+}
+
+// .new-expense-header {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   text-align: center;
+//   margin: 0 auto;
+
+// }
+
+.new-expense-back {
+  position: absolute;
+  top: 2.5rem;
+  left: 2rem;
+
   a {
     color: black;
     font-size: 18pt;
   }
-
-  h1 {
-    margin-bottom: 0;
-    margin-right: 60px;
-  }
 }
 
 .add-buttons {
- display:flex;
- align-items: center;
- justify-content: center;
+  display:flex;
+  align-items: center;
+  justify-content: center;
 }
