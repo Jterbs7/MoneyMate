@@ -1,13 +1,14 @@
 <!-- app/views/budgets/show.html.erb -->
 <div class="index-yellow-header">
-<div class="new-expense-header">
-  <%= link_to :back do %>
-    <i class="fa-solid fa-arrow-left mr-5"></i>
-  <% end %>
-  <h1><%= @budget.category_budget.name %>: <%= @budget.name %></h1>
-</div>
+  <div class="new-expense-header">
+    <%= link_to category_budgets_path do %>
+      <i class="fa-solid fa-arrow-left mr-5"></i>
+    <% end %>
+    <h1><%= @budget.category_budget.name %>: <%= @budget.name %></h1>
+  </div>
 </div>
 <div class="budget-show-container">
+  <p>Expenses</p>
   <div class="show-recent-transactions">
     <% @budget_expenses.each do |expense| %>
      <%= link_to expense_path(expense) do %>
