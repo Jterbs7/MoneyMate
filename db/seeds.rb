@@ -401,14 +401,14 @@ puts "#{Tip.count} tips created"
 
 puts "Creating badges"
 gold = Badge.create(name: 'Gold', message: '🎉 Congratulations! You have managed your budget excellently this month. 🏆', image: 'https://res.cloudinary.com/dw1yozuyk/image/upload/v1686832545/gold_360_hy7gql.gif')
-fail_badge = Badge.create(name: 'Fail', message: '🚨 You have exceeded your budget this month. Try to save more next month. 💔', image: 'https://res.cloudinary.com/dw1yozuyk/image/upload/v1686832506/nobadge_kh6eje.gif')
+fail_badge = Badge.create(name: 'Fail', message: '🚨 You have exceeded your budget this month. Try to save more next month. 💔', image: 'https://res.cloudinary.com/dw1yozuyk/image/upload/v1686905564/fail_tdf5im.gif')
 bronze = Badge.create(name: 'Bronze', message: '🥉 You did well, but you can do even better! Keep track of your expenses! 📈', image: 'https://res.cloudinary.com/dw1yozuyk/image/upload/v1686832610/bronze_360_hcdpoo.gif')
 silver = Badge.create(name: 'Silver', message: '🥈 Great work! You managed your budget quite well this month. 👏', image: 'https://res.cloudinary.com/dw1yozuyk/image/upload/v1686832601/silver_360_j32exn.gif')
 
-ProfileBadge.create(profile_id: main_user.profile.id, badge_id: fail_badge.id, month: 'May')
-ProfileBadge.create(profile_id: main_user.profile.id, badge_id: fail_badge.id, month: 'April')
+ProfileBadge.create(profile_id: main_user.profile.id, badge_id: gold.id, month: 'May')
+ProfileBadge.create(profile_id: main_user.profile.id, badge_id: silver.id, month: 'April')
 ProfileBadge.create(profile_id: main_user.profile.id, badge_id: bronze.id, month: 'March')
-ProfileBadge.create(profile_id: main_user.profile.id, badge_id: silver.id, month: 'February')
-ProfileBadge.create(profile_id: main_user.profile.id, badge_id: silver.id, month: 'January')
+ProfileBadge.create(profile_id: main_user.profile.id, badge_id: fail_badge.id, month: 'February')
+ProfileBadge.create(profile_id: main_user.profile.id, badge_id: fail_badge.id, month: 'January')
 
 puts "Created badges"
