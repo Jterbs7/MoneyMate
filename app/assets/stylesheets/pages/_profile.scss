@@ -1,6 +1,12 @@
 .profile-show-container {
   padding: 0px 30px;
   margin: 0 auto;
+  height: 38rem;
+  overflow-y: scroll;
+}
+
+.profile-show-container::-webkit-scrollbar {
+  display: none;
 }
 
 .main-profile-card {
@@ -88,4 +94,28 @@
     touch-action: manipulation;
     width: 100%;
     margin-top: 50px;
+}
+
+.profile-show-yellow-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7rem;
+  background-color: #FFD84B;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0px 9px 10px -4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  h1 {
+    margin-bottom: 0;
+  }
+}
+
+.profile-show-back {
+  position: absolute;
+  top: 2.5rem;
+  left: 2rem;
+  a{
+    font-size: 18pt;
+  }
 }

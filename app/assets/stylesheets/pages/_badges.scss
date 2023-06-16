@@ -27,6 +27,12 @@
   height: 150px;
   overflow: auto
 }
+
+.past-badges::-webkit-scrollbar {
+  display: none;
+}
+
+
 .current-badge {
   display: flex;
   flex-direction: column;

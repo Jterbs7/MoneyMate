@@ -1,9 +1,11 @@
 <!-- app/views/budgets/show.html.erb -->
-<div class="index-yellow-header">
-  <div class="new-expense-header">
+<div class="budget-show-yellow-header">
+  <div class="budget-show-back">
     <%= link_to category_budgets_path do %>
       <i class="fa-solid fa-arrow-left mr-5"></i>
     <% end %>
+  </div>
+  <div class="budget-show-header">
     <h1><%= @budget.category_budget.name %>: <%= @budget.name %></h1>
   </div>
 </div>

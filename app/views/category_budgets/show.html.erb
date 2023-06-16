@@ -14,7 +14,7 @@
   <% @category_budget.budgets.each do |budget| %>
     <%= link_to budget do %>
       <div class="budget-category-card">
-        <p><%= budget.name %></p>
+        <p class="mb-3"><%= budget.name %></p>
         <% start_date = Time.current.beginning_of_month.to_date %>
         <% end_date = Time.current.end_of_day %>
         <% monthly_expenses_total = 0 %>
