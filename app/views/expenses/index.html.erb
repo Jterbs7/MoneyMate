@@ -47,9 +47,9 @@
       </div>
     </div>
   <% else %>
-    <p class="mt-4">LAST 7 DAYS..</p>
+    <p class="my-1 mx-2">LAST 7 DAYS</p>
 
-    <div class="index-transactions-section">
+    <%# <div class="index-transactions-section"> %>
       <div class="index-recent-transactions">
         <% @expenses_last_seven_days.each do |expense| %>
             <%= link_to expense_path(expense) do %>
@@ -68,6 +68,6 @@
           </div>
         <% end %>
       </div>
-    </div>
+    <%# </div> %>
   <% end %>
 </div>

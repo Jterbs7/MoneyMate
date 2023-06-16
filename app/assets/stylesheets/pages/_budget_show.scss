@@ -8,12 +8,25 @@
     margin-bottom: 40px;
     margin-top: 60px;
   }
+
+  p {
+    font-size: larger;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+  }
 }
 .show-recent-transactions{
   overflow-x: hidden;
   overflow-y: auto;
-  height: 500px;
+  height: 33rem;
+  // border: 1px solid red;
+  padding: 0.5rem 0.5rem;
 }
+
+.show-recent-transactions::-webkit-scrollbar{
+  display: none;
+}
+
 .show-recent-transaction-card{
   display:flex;
   justify-content: space-between;
@@ -21,7 +34,7 @@
   padding: 16px 20px;
   border-radius: 21px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  margin-bottom: 8px;
+  margin-bottom: 1rem;
 
   h2 {
     margin-bottom: 5px;

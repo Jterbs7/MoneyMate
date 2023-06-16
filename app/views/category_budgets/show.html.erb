@@ -1,12 +1,12 @@
 <div class="categories-header-container">
   <div class="budgets-show-header">
-  <div class="budgets-show-header-top">
-    <%= link_to :back do %>
-      <i class="fa-solid fa-arrow-left mr-5"></i>
-    <% end %>
+    <div class="budgets-show-header-top">
+      <%= link_to :back do %>
+        <i class="fa-solid fa-arrow-left mr-5"></i>
+      <% end %>
+    </div>
     <h1><%= @category_budget.name %></h1>
-  </div>
-  <p>Total: R <%= @category_budget.amount %></p>
+    <p>Total: R <%= @category_budget.amount %></p>
   </div>
 </div>
 
@@ -24,7 +24,7 @@
           <% end %>
         <% end %>
         <% expenses_as_percentage_of_budget = (monthly_expenses_total/budget.amount) * 100 %>
-       
+
         <div class="w-75">
           <div class="progress">
             <% if expenses_as_percentage_of_budget > 100 %>

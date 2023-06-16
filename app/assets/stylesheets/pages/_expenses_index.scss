@@ -54,10 +54,10 @@
   }
 }
 .index-recent-transaction-icon{
-   border:1.5px solid black;
-   border-radius: 50%;
-   padding: 8px;
-   margin-left: -12px;
+  border:1.5px solid black;
+  border-radius: 50%;
+  padding: 8px;
+  margin-left: -12px;
 }
 
 .index-transactions-section {
@@ -76,7 +76,12 @@
 .index-recent-transactions{
   overflow-x: hidden;
   overflow-y: auto;
-  height: 500px;
+  height: 26rem;
+  padding: 0.5rem 0.5rem;
+}
+
+.index-recent-transactions::-webkit-scrollbar{
+  display: none;
 }
 
 .expense-index-container {
